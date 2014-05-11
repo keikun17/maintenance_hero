@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20140511120043) do
   enable_extension "plpgsql"
   enable_extension "hstore"
 
-  create_table "equipments", force: true do |t|
+  create_table "equipment", force: true do |t|
     t.text     "description"
     t.hstore   "listed_specs"
     t.hstore   "actual_specs"
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20140511120043) do
     t.datetime "updated_at"
   end
 
-  add_index "equipments", ["actual_specs"], name: "equipments_gin_actual_specs", using: :gin
-  add_index "equipments", ["itemcode"], name: "index_equipments_on_itemcode", using: :btree
-  add_index "equipments", ["listed_specs"], name: "equipments_gin_listed_specs", using: :gin
+  add_index "equipment", ["actual_specs"], name: "equipments_gin_actual_spec", using: :gin
+  add_index "equipment", ["itemcode"], name: "index_equipment_on_itemcode", using: :btree
+  add_index "equipment", ["listed_specs"], name: "equipments_gin_listed_spec", using: :gin
 
 end

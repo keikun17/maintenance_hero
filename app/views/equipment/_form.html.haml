@@ -1,0 +1,30 @@
+= form_for @equipment, :html => { :class => 'form-horizontal' } do |f|
+  .form-group
+    .controls
+      = f.text_field :description, :class => 'form-control'
+  .form-group
+    = f.label :listed_specs, :class => 'control-label'
+    .controls
+      = f.text_field :listed_specs, :class => 'form-control'
+  .form-group
+    = f.label :actual_specs, :class => 'control-label'
+    .controls
+      = f.text_field :actual_specs, :class => 'form-control'
+  .form-group
+    = f.label :itemcode, :class => 'control-label'
+    .controls
+      = f.text_field :itemcode, :class => 'form-control'
+  .form-group
+    = f.label :installed_at, :class => 'control-label'
+    .controls
+      = f.text_field :installed_at, :class => 'form-control'
+  .form-group
+    = f.label :replaced_at, :class => 'control-label'
+    .controls
+      = f.text_field :replaced_at, :class => 'form-control'
+  .form-group
+    = f.label :failure_mode, :class => 'control-label'
+    .controls
+      = f.text_field :failure_mode, :class => 'form-control'
+  = f.submit nil, :class => 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), equipment_index_path, :class => 'btn btn-default'
