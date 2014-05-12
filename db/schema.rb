@@ -11,11 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511120043) do
+ActiveRecord::Schema.define(version: 20140512123244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "equipment", force: true do |t|
     t.text     "description"
@@ -32,5 +38,14 @@ ActiveRecord::Schema.define(version: 20140511120043) do
   add_index "equipment", ["actual_specs"], name: "equipments_gin_actual_spec", using: :gin
   add_index "equipment", ["itemcode"], name: "index_equipment_on_itemcode", using: :btree
   add_index "equipment", ["listed_specs"], name: "equipments_gin_listed_spec", using: :gin
+
+  create_table "properties", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "properties", ["user_id"], name: "index_properties_on_user_id", using: :btree
 
 end
