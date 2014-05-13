@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+conveyor_belt = Category.find_or_create_by(name: 'Conveyor Belt')
+
+properties = ['Ply Rating', "Plies", "TC", "BC", "Width", "Length"]
+properties.each do |property_name|
+  Property.find_or_create_by(name: property_name, category: conveyor_belt)
+
+end

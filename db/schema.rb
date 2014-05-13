@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512123244) do
+ActiveRecord::Schema.define(version: 20140513120150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,12 +40,12 @@ ActiveRecord::Schema.define(version: 20140512123244) do
   add_index "equipment", ["listed_specs"], name: "equipments_gin_listed_spec", using: :gin
 
   create_table "properties", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "category_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "properties", ["user_id"], name: "index_properties_on_user_id", using: :btree
+  add_index "properties", ["category_id"], name: "index_properties_on_category_id", using: :btree
 
 end
