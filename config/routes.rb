@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'equipment#index'
+
   resources :properties
 
   resources :categories

@@ -19,13 +19,13 @@
 
 
   %body
-    .navbar.navbar-default.navbar-static-top
+    .navbar.navbar-inverse.navbar-static-top
       .container
         %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand(href="#") MaintenanceHero
+        = link_to "Maintenance Hero", root_path, class: "navbar-brand"
         .navbar-collapse.collapse.navbar-responsive-collapse
           %ul.nav.navbar-nav
             %li= link_to "Link 1", "/path1"
@@ -40,11 +40,11 @@
           = yield
         .col-lg-3
           .well.sidebar-nav
-            %h3 Sidebar
+            %h3 Admin
             %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li.nav-header Pages
+              %li= link_to "Equipments", equipment_index_path
+              %li= link_to "Categories", categories_path
+              %li= link_to "Properties", properties_path
       %footer
         %p &copy; Company 2014
