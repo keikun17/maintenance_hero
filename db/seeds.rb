@@ -10,8 +10,17 @@ location = Location.find_or_create_by(name: 'Coal')
 
 conveyor_belt = Category.find_or_create_by(name: 'Conveyor Belt')
 
-properties = ['Ply Rating', "Plies", "TC", "BC", "Width", "Length"]
+properties = [
+  { name: 'Ply Rating', symbol: 'ply_rating', category: conveyor_belt},
+  { name: 'Plies', symbol: 'ply_count', category: conveyor_belt},
+  { name: 'TC', symbol: 'tc', category: conveyor_belt},
+  { name: 'BC', symbol: 'bc', category: conveyor_belt},
+  { name: 'Width', symbol: 'width', category: conveyor_belt},
+  { name: 'Length', symbol: 'length', category: conveyor_belt},
+  { name: 'Length Unit', symbol: 'length_unit', category: conveyor_belt}
+]
 
-properties.each do |property_name|
-  Property.find_or_create_by(name: property_name, category: conveyor_belt)
+properties.each do |property_attribute|
+  puts "1"
+  puts Property.find_or_create_by(property_attribute)
 end

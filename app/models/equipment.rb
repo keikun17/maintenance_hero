@@ -1,4 +1,17 @@
 class Equipment < ActiveRecord::Base
+  store_accessor :listed_specs
+  store_accessor :actual_specs
+
+  after_initialize :add_property_fields_to_specs
+  after_save :add_property_fields_to_specs
+
+  def add_property_fields_to_specs
+    singleton_class.class_eval do
+      store_accessor :listed_specs, Property.pluck(:name)
+      store_accessor :actual_specs, Property.pluck(:name)
+    end
+  end
+
 end
 
 # == Schema Information
