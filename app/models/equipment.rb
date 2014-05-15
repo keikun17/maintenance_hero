@@ -15,4 +15,6 @@ end
 #  failure_mode :date
 #  created_at   :datetime
 #  updated_at   :datetime
+#  location_id  :integer
+#  category_id  :integer
 #
