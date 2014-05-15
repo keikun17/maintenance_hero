@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515013704) do
+ActiveRecord::Schema.define(version: 20140515020639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,9 +34,11 @@ ActiveRecord::Schema.define(version: 20140515013704) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "location_id"
+    t.integer  "category_id"
   end
 
   add_index "equipment", ["actual_specs"], name: "equipments_gin_actual_spec", using: :gin
+  add_index "equipment", ["category_id"], name: "index_equipment_on_category_id", using: :btree
   add_index "equipment", ["itemcode"], name: "index_equipment_on_itemcode", using: :btree
   add_index "equipment", ["listed_specs"], name: "equipments_gin_listed_spec", using: :gin
   add_index "equipment", ["location_id"], name: "index_equipment_on_location_id", using: :btree

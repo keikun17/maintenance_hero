@@ -1,8 +1,14 @@
 = form_for @equipment, :html => { :class => 'form-horizontal' } do |f|
+
+
   .form-group
     = f.label :location_id, :class => 'control-label'
     .controls
       = f.select :location_id, options_for_select( Location.all.map{ |x| [x.name, x.id] } ), :class => 'form-control'
+  .form-group
+    = f.label :category_id, :class => 'control-label'
+    .controls
+      = f.select :category_id, options_for_select( Category.all.map{ |x| [x.name, x.id] } ), :class => 'form-control'
   .form-group
     = f.label :description, :class => 'control-label'
     .controls
@@ -11,6 +17,11 @@
     = f.label :listed_specs, :class => 'control-label'
     .controls
       = f.text_field :listed_specs, :class => 'form-control'
+  .form-group
+    = f.label :listed_specs, :class => 'control-label'
+    .controls
+      = f.text_field :listed_specs, :class => 'form-control'
+
   .form-group
     = f.label :actual_specs, :class => 'control-label'
     .controls

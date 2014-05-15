@@ -1,4 +1,8 @@
 class Category < ActiveRecord::Base
+  validates :name, presence: true, uniqueness: {scope: :user}
+
+  has_many :equipment
+  has_many :properties
 end
 
 # == Schema Information
