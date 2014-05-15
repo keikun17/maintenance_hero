@@ -18,14 +18,14 @@
   .form-group
     = f.label :installed_at, :class => 'control-label'
     .controls
-      = f.text_field :installed_at, :class => 'form-control'
+      = f.date_select :installed_at, :class => 'form-control'
   .form-group
     = f.label :replaced_at, :class => 'control-label'
     .controls
-      = f.text_field :replaced_at, :class => 'form-control'
+      = f.date_select :replaced_at, :class => 'form-control'
   .form-group
     = f.label :failure_mode, :class => 'control-label'
     .controls
-      = f.text_field :failure_mode, :class => 'form-control'
+      = f.date_select :failure_mode, :class => 'form-control'
   = f.submit nil, :class => 'btn btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), equipment_index_path, :class => 'btn btn-default'
