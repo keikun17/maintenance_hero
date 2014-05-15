@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  resources :locations
+
   root 'equipment#index'
+
+  resources :locations
 
   resources :properties
 
