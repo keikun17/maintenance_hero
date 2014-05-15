@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-  validates :name, presence: true, uniqueness: {scope: :user}
+  validates :name, presence: true
 
   has_many :equipment
   has_many :properties

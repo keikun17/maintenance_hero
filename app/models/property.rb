@@ -3,6 +3,7 @@ class Property < ActiveRecord::Base
 
   validates :category_id, presence: true
   validates :name, presence: true, uniqueness: {scope: :category}
+  validates :symbol, presence: true, uniqueness: {scope: :category}
 end
 
 # == Schema Information
