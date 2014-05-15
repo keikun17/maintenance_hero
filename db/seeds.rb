@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+location = Location.find_or_create_by(name: 'Coal')
 conveyor_belt = Category.find_or_create_by(name: 'Conveyor Belt')
 
 properties = ['Ply Rating', "Plies", "TC", "BC", "Width", "Length"]
