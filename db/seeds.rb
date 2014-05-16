@@ -21,6 +21,5 @@ properties = [
 ]
 
 properties.each do |property_attribute|
-  puts "1"
   puts Property.find_or_create_by(property_attribute)
 end

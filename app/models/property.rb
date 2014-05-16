@@ -4,6 +4,14 @@ class Property < ActiveRecord::Base
   validates :category_id, presence: true
   validates :name, presence: true, uniqueness: {scope: :category}
   validates :symbol, presence: true, uniqueness: {scope: :category}
+
+  def actual_sym
+    'actual_' + symbol
+  end
+
+  def listed_sym
+    'listed_' + symbol
+  end
 end
 
 # == Schema Information

@@ -7,8 +7,9 @@ class Equipment < ActiveRecord::Base
 
   def add_property_fields_to_specs
     singleton_class.class_eval do
-      store_accessor :listed_specs, Property.pluck(:symbol)
-      store_accessor :actual_specs, Property.pluck(:symbol)
+      property_symbols = Property.pluck(:symbol)
+      store_accessor :listed_specs, property_symbols.collect{|x| "listed_#{x}"}
+      store_accessor :actual_specs, property_symbols.collect{|x| "actual_#{x}"}
     end
   end
 

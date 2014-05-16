@@ -13,14 +13,18 @@
     = f.label :description, :class => 'control-label'
     .controls
       = f.text_field :description, :class => 'form-control'
-  .form-group
-    = f.label :listed_specs, :class => 'control-label'
-    .controls
-      = f.text_field :listed_specs, :class => 'form-control'
-  .form-group
-    = f.label :listed_specs, :class => 'control-label'
-    .controls
-      = f.text_field :listed_specs, :class => 'form-control'
+
+  - Property.all.collect{|x| x.listed_sym}.each do |property_key|
+    .form-group
+      = f.label property_key, :class => 'control-label'
+      .controls
+        = f.text_field property_key, :class => 'form-control'
+
+  - Property.all.collect{|x| x.actual_sym}.each do |property_key|
+    .form-group
+      = f.label property_key, :class => 'control-label'
+      .controls
+        = f.text_field property_key, :class => 'form-control'
 
   .form-group
     = f.label :actual_specs, :class => 'control-label'
