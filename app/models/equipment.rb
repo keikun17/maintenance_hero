@@ -1,15 +1,15 @@
 class Equipment < ActiveRecord::Base
-  store_accessor :listed_specs
-  store_accessor :actual_specs
 
   after_initialize :add_property_fields_to_specs
   after_save :add_property_fields_to_specs
 
   def add_property_fields_to_specs
     singleton_class.class_eval do
-      property_symbols = Property.pluck(:symbol)
-      store_accessor :listed_specs, property_symbols.collect{|x| "listed_#{x}"}
-      store_accessor :actual_specs, property_symbols.collect{|x| "actual_#{x}"}
+      listed_properties = Property.pluck(:symbol).collect{|x| 'listed_' + x}
+      actual_properties = Property.pluck(:symbol).collect{|x| 'actual_' + x}
+
+      hstore_accessor :listed_specs, Hash[listed_properties.collect{|prop| [prop, 'string']}]
+      hstore_accessor :actual_specs, Hash[actual_properties.collect{|prop| [prop, 'string']}]
     end
   end
 

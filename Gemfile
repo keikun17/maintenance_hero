@@ -8,6 +8,8 @@ gem "hashie"
 gem 'pry'
 gem 'draper'
 
+gem 'hstore_accessor'
+
 gem 'haml-rails'
 
 gem 'therubyracer'

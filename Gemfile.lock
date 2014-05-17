@@ -69,6 +69,8 @@ GEM
       railties (>= 4.0.1)
     hashie (2.1.1)
     hike (1.2.3)
+    hstore_accessor (0.6.0)
+      activesupport (>= 3.2.0)
     i18n (0.6.9)
     jbuilder (2.0.7)
       activesupport (>= 3.0.0, < 5)
@@ -177,6 +179,7 @@ DEPENDENCIES
   draper
   haml-rails
   hashie
+  hstore_accessor
   jbuilder (~> 2.0)
   jquery-rails
   less-rails

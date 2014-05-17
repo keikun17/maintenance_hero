@@ -10,9 +10,18 @@ describe Equipment do
   end
 
   describe "#save" do
-    it "saves" do
+    it "saves the dynamic attributes" do
       equipment = described_class.new
-      equipment.save.should_not be_false
+      equipment.listed_length = '42'
+      equipment.actual_length = '24'
+      equipment.listed_width = '69'
+      equipment.actual_width = '96'
+      equipment.save
+
+      expect(equipment.listed_length).to eq('42')
+      expect(equipment.actual_length).to eq('24')
+      expect(equipment.listed_width).to eq('69')
+      expect(equipment.actual_width).to eq('96')
     end
 
   end
