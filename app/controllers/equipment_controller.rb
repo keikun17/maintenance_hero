@@ -69,6 +69,8 @@ class EquipmentController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_params
-      params.require(:equipment).permit(:description, :listed_specs, :actual_specs, :itemcode, :installed_at, :replaced_at, :failure_mode)
+      permitted_attributes = [:description, :listed_specs, :actual_specs, :itemcode, :installed_at, :replaced_at, :failure_mode]
+      permitted_attributes.concat(Property.listed_properties + Property.actual_properties)
+      params.require(:equipment).permit(permitted_attributes)
     end
 end

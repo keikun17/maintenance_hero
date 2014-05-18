@@ -6,10 +6,30 @@
   %strong= model_class.human_attribute_name(:description) + ':'
   %br
   = @equipment.description
+
+%hr
+
+- Property.listed_properties.each do |property_key|
+  %p
+    %strong= model_class.human_attribute_name(property_key) + ':'
+    %br
+    = @equipment.send(property_key)
+
+%hr
+
+- Property.actual_properties.each do |property_key|
+  %p
+    %strong= model_class.human_attribute_name(property_key) + ':'
+    %br
+    = @equipment.send(property_key)
+
+%hr
+
 %p
   %strong= model_class.human_attribute_name(:listed_specs) + ':'
   %br
   = @equipment.listed_specs
+
 %p
   %strong= model_class.human_attribute_name(:actual_specs) + ':'
   %br

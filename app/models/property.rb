@@ -6,11 +6,19 @@ class Property < ActiveRecord::Base
   validates :symbol, presence: true, uniqueness: {scope: :category}
 
   def actual_sym
-    'actual_' + symbol
+    ('actual_' + symbol).to_sym
   end
 
   def listed_sym
-    'listed_' + symbol
+    ('listed_' + symbol).to_sym
+  end
+
+  def self.listed_properties
+    Property.all.collect{|x| x.listed_sym }
+  end
+
+  def self.actual_properties
+    Property.all.collect{|x| x.actual_sym}
   end
 end
 
