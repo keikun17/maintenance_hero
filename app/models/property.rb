@@ -5,6 +5,10 @@ class Property < ActiveRecord::Base
   validates :name, presence: true, uniqueness: {scope: :category}
   validates :symbol, presence: true, uniqueness: {scope: :category}
 
+  default_scope -> { order(position: :desc) }
+
+  acts_as_list scope: :category
+
   def actual_sym
     ('actual_' + symbol).to_sym
   end

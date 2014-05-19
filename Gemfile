@@ -8,6 +8,7 @@ gem "hashie"
 gem 'pry'
 gem 'draper'
 
+gem 'acts_as_list'
 gem 'hstore_accessor'
 
 gem 'haml-rails'

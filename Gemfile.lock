@@ -38,6 +38,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts_as_list (0.4.0)
+      activerecord (>= 3.0)
     annotate (2.6.3)
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
@@ -174,6 +176,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_list
   annotate
   coffee-rails (~> 4.0.0)
   draper

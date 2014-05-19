@@ -7,6 +7,7 @@
       %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:category_name)
       %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:position)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
@@ -15,6 +16,7 @@
         %td= link_to property.id, property_path(property)
         %td= property.category.name
         %td= property.name
+        %td= property.position
         %td=l property.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_property_path(property), :class => 'btn btn-default btn-xs'
