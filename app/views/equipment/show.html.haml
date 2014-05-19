@@ -9,31 +9,23 @@
 
 %hr
 
-- Property.listed_properties.each do |property_key|
-  %p
-    %strong= model_class.human_attribute_name(property_key) + ':'
-    %br
-    = @equipment.send(property_key)
+.row
+  .col-md-6
+
+    - Property.listed_properties.each do |property_key|
+      %p
+        %strong= model_class.human_attribute_name(property_key) + ':'
+        %br
+        = @equipment.send(property_key)
+
+  .col-md-6
+    - Property.actual_properties.each do |property_key|
+      %p
+        %strong= model_class.human_attribute_name(property_key) + ':'
+        %br
+        = @equipment.send(property_key)
 
 %hr
-
-- Property.actual_properties.each do |property_key|
-  %p
-    %strong= model_class.human_attribute_name(property_key) + ':'
-    %br
-    = @equipment.send(property_key)
-
-%hr
-
-%p
-  %strong= model_class.human_attribute_name(:listed_specs) + ':'
-  %br
-  = @equipment.listed_specs
-
-%p
-  %strong= model_class.human_attribute_name(:actual_specs) + ':'
-  %br
-  = @equipment.actual_specs
 %p
   %strong= model_class.human_attribute_name(:itemcode) + ':'
   %br
