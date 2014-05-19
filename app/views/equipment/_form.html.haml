@@ -14,22 +14,22 @@
     .controls
       = f.text_field :description, :class => 'form-control'
 
-  - Property.all.collect{|x| x.listed_sym}.each do |property_key|
-    .form-group
-      = f.label property_key, :class => 'control-label'
-      .controls
-        = f.text_field property_key, :class => 'form-control'
+  .row
+    .col-md-6
+      - Property.all.collect{|x| x.listed_sym}.each do |property_key|
+        .form-group
+          = f.label property_key, :class => 'control-label'
+          .controls
+            = f.text_field property_key, :class => 'form-control'
 
-  - Property.all.collect{|x| x.actual_sym}.each do |property_key|
-    .form-group
-      = f.label property_key, :class => 'control-label'
-      .controls
-        = f.text_field property_key, :class => 'form-control'
+    .col-md-6
+      - Property.all.collect{|x| x.actual_sym}.each do |property_key|
+        .form-group
+          = f.label property_key, :class => 'control-label'
+          .controls
+            = f.text_field property_key, :class => 'form-control'
 
-  .form-group
-    = f.label :actual_specs, :class => 'control-label'
-    .controls
-      = f.text_field :actual_specs, :class => 'form-control'
+
   .form-group
     = f.label :itemcode, :class => 'control-label'
     .controls
