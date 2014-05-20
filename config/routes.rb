@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   root 'equipment#index'
 
+  # wizard resource
+  resources :equipment_creation
+
   resources :locations
 
   resources :properties

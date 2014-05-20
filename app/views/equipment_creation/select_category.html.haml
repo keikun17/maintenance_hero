@@ -1,0 +1,7 @@
+= form_for @equipment, url: next_wizard_path, method: :put do |f|
+  .form-group
+    = f.label :category_id, :class => 'control-label'
+    .controls
+      = f.select :category_id, options_for_select( Category.all.map{ |x| [x.name, x.id] } ), :class => 'form-control'
+  = f.submit nil, :class => 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), equipment_index_path, :class => 'btn btn-default'
