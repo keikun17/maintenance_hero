@@ -2,7 +2,7 @@
   .form-group
     = f.label :category_id, :class => 'control-label'
     .controls
-      = f.select :category_id, options_for_select( Category.all.map{ |x| [x.name, x.id] } ), :class => 'form-control'
+      = f.select :category_id, Category.all.map{ |x| [x.name, x.id] }, {}, disabled: @property.persisted?,  class: 'form-control'
   .form-group
     = f.label :position, :class => 'control-label'
     .controls
@@ -14,6 +14,6 @@
   .form-group
     = f.label :symbol, :class => 'control-label'
     .controls
-      = f.text_field :symbol, :class => 'form-control'
+      = f.text_field :symbol, :class => 'form-control', disabled: @property.persisted?
   = f.submit nil, :class => 'btn btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), properties_path, :class => 'btn btn-default'
