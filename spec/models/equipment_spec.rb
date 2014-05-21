@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe Equipment do
 
+  let(:wood) { Category.find_or_create_by(name: 'Wood') }
+
   before do
     # setup properties, replace with factories later
     length = Property.create!(name: 'Length', symbol: 'length', data_type: 'float', category: wood)
@@ -28,18 +30,31 @@ describe Equipment do
   end
 
   describe ".save" do
+
     it "saves the dynamic attributes" do
-      equipment = described_class.new
+      equipment = described_class.new(category: wood)
+
       equipment.listed_length = '42'
+      equipment.listed_length_unit = 'meter'
       equipment.actual_length = '24'
+      equipment.actual_length_unit = 'meter'
+
       equipment.listed_width = '69'
+      equipment.listed_width_unit = 'meter'
       equipment.actual_width = '96'
+      equipment.actual_width_unit = 'meter'
+
       equipment.save
 
       expect(equipment.listed_length).to eq('42')
+      expect(equipment.listed_length_unit).to eq('meter')
       expect(equipment.actual_length).to eq('24')
+      expect(equipment.actual_length_unit).to eq('meter')
+
       expect(equipment.listed_width).to eq('69')
+      expect(equipment.listed_width_unit).to eq('meter')
       expect(equipment.actual_width).to eq('96')
+      expect(equipment.actual_width_unit).to eq('meter')
     end
 
   end
