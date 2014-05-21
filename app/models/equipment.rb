@@ -1,11 +1,13 @@
 class Equipment < ActiveRecord::Base
+  belongs_to :category
+  has_many :properties, through: :category
+
+  validates :category_id, presence: true
 
   after_initialize :add_property_fields_to_specs
   before_save :add_property_fields_to_specs
   before_create :add_property_fields_to_specs
 
-  belongs_to :category
-  validates :category_id, presence: true
 
   def add_property_fields_to_specs
     singleton_class.class_eval do
