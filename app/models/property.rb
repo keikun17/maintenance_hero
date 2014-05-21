@@ -1,9 +1,12 @@
 class Property < ActiveRecord::Base
+  DATA_TYPES = %w( string integer float time array hash )
+
   belongs_to :category
 
   validates :category_id, presence: true
   validates :name, presence: true, uniqueness: {scope: :category}
   validates :symbol, presence: true, uniqueness: {scope: :category}
+  validates :data_type, presence: true
 
   default_scope -> { order(position: :desc) }
 

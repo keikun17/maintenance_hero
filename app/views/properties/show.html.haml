@@ -14,7 +14,15 @@
   %strong= model_class.human_attribute_name(:name) + ':'
   %br
   = @property.name
+%p
+  %strong= model_class.human_attribute_name(:symbol) + ':'
+  %br
+  = @property.symbol
 
+%p
+  %strong= model_class.human_attribute_name(:data_type) + ':'
+  %br
+  = @property.data_type
 
 = link_to t('.back', :default => t("helpers.links.back")), properties_path, :class => 'btn btn-default'
 = link_to t('.edit', :default => t("helpers.links.edit")), edit_property_path(@property), :class => 'btn btn-default'

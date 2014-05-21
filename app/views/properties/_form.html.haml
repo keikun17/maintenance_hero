@@ -15,5 +15,10 @@
     = f.label :symbol, :class => 'control-label'
     .controls
       = f.text_field :symbol, :class => 'form-control', disabled: @property.persisted?
+  .form-group
+    = f.label :data_type, :class => 'control-label'
+    .controls
+      = f.select :data_type, Property::DATA_TYPES, {}, :class => 'form-control', disabled: @property.persisted?
+
   = f.submit nil, :class => 'btn btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), properties_path, :class => 'btn btn-default'
