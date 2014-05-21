@@ -24,8 +24,7 @@ class EquipmentController < ApplicationController
   # POST /equipment
   # POST /equipment.json
   def create
-    @equipment = Equipment.new
-    @equipment.attributes = equipment_params
+    @equipment = Equipment.initialize_with_dynamic_properties(equipment_params)
 
     respond_to do |format|
       if @equipment.save
