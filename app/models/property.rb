@@ -39,4 +39,6 @@ end
 #  created_at  :datetime
 #  updated_at  :datetime
 #  symbol      :string(255)
+#  position    :integer
+#  data_type   :string(255)
 #
