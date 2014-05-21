@@ -9,7 +9,19 @@ describe Equipment do
     width = Property.create!(name: 'Width', symbol: 'width', category: wood)
   end
 
-  describe "#save" do
+  describe "#listed_properties" do
+    it "should list all the symbols of the listed propertes" do
+      pending
+    end
+  end
+
+  describe "#actual_properties" do
+    it "should list all the symbols of the listed propertes" do
+      pending
+    end
+  end
+
+  describe ".save" do
     it "saves the dynamic attributes" do
       equipment = described_class.new
       equipment.listed_length = '42'
