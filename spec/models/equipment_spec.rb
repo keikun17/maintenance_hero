@@ -4,9 +4,15 @@ describe Equipment do
 
   before do
     # setup properties, replace with factories later
-    wood = Category.create(name: 'Wood')
-    length = Property.create!(name: 'Length', symbol: 'length', category: wood)
-    width = Property.create!(name: 'Width', symbol: 'width', category: wood)
+    length = Property.create!(name: 'Length', symbol: 'length', data_type: 'float', category: wood)
+    width = Property.create!(name: 'Width', symbol: 'width', data_type: 'float',  category: wood)
+    length_unit = Property.create!(name: 'Length Unit', symbol: 'length_unit', data_type: 'string', category: wood)
+    width_unit = Property.create!(name: 'Width Unit', symbol: 'width_unit', data_type: 'string',  category: wood)
+  end
+
+  describe "#initialize_with_dynamic_properties" do
+    it "should initialize an object with the properties suited for its category" do
+    end
   end
 
   describe "#listed_properties" do
