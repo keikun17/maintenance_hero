@@ -1,6 +1,6 @@
 - model_class = Equipment
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.titleize
+  %h1 #{@equipment.category.name} Equipment
 
 %p
   %strong= model_class.human_attribute_name(:description) + ':'

@@ -24,13 +24,15 @@ class EquipmentController < ApplicationController
   # POST /equipment
   # POST /equipment.json
   def create
-    @equipment = Equipment.new(equipment_params)
+    @equipment = Equipment.new
+    @equipment.attributes = equipment_params
 
     respond_to do |format|
       if @equipment.save
         format.html { redirect_to @equipment, notice: 'Equipment was successfully created.' }
         format.json { render :show, status: :created, location: @equipment }
       else
+        binding.pry
         format.html { render :new }
         format.json { render json: @equipment.errors, status: :unprocessable_entity }
       end
@@ -51,7 +53,7 @@ class EquipmentController < ApplicationController
     end
   end
 
-  # DELETE /equipment/1
+  # DELETE /equi/1
   # DELETE /equipment/1.json
   def destroy
     @equipment.destroy
@@ -69,7 +71,7 @@ class EquipmentController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_params
-      permitted_attributes = [:description, :listed_specs, :actual_specs, :itemcode, :installed_at, :replaced_at, :failure_mode]
+      permitted_attributes = [:category_id, :description, :listed_specs, :actual_specs, :itemcode, :installed_at, :replaced_at, :failure_mode]
       permitted_attributes.concat(Property.listed_properties + Property.actual_properties)
       params.require(:equipment).permit(permitted_attributes)
     end

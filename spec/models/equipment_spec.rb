@@ -9,6 +9,16 @@ describe Equipment do
     width = Property.create!(name: 'Width', symbol: 'width', category: wood)
   end
 
+  describe "#new" do
+    it "can be initialized with dynamic attributes" do
+      equipment = Equipment.new(listed_length: '12', actual_length: '13')
+      expect(equipment.listed_length).to eq('12')
+      expect(equipment.actual_length).to eq('13')
+
+    end
+
+  end
+
   describe "#save" do
     it "saves the dynamic attributes" do
       equipment = described_class.new

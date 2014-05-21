@@ -1,14 +1,11 @@
 = form_for @equipment, :html => { :class => 'form-horizontal' } do |f|
 
+  = f.hidden_field :category_id
 
   .form-group
     = f.label :location_id, :class => 'control-label'
     .controls
       = f.select :location_id, options_for_select( Location.all.map{ |x| [x.name, x.id] } ), :class => 'form-control'
-  .form-group
-    = f.label :category_id, :class => 'control-label'
-    .controls
-      = f.select :category_id, options_for_select( Category.all.map{ |x| [x.name, x.id] } ), :class => 'form-control'
   .form-group
     = f.label :description, :class => 'control-label'
     .controls
