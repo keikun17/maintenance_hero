@@ -12,7 +12,6 @@ class EquipmentCreationController < ApplicationController
     case step
     when :encode_equipment
       @equipment = Equipment.new(equipment_params)
-      # @equipment.attributes = equipment_params
     end
     render_wizard
   end

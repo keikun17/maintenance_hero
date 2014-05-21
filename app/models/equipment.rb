@@ -1,10 +1,9 @@
 class Equipment < ActiveRecord::Base
   belongs_to :category
-  has_many :properties, through: :category
 
   validates :category_id, presence: true
 
-  after_initialize :add_property_fields_to_specs
+  after_initialize :add_property_fields_to_specs, unless: "category.nil?"
   before_save :add_property_fields_to_specs
   before_create :add_property_fields_to_specs
 
@@ -15,9 +14,13 @@ class Equipment < ActiveRecord::Base
   end
 
   def add_property_fields_to_specs
-    singleton_class.class_eval do
-      hstore_accessor :listed_specs, Hash[Property.listed_properties.collect{|prop| [prop, 'string']}]
-      hstore_accessor :actual_specs, Hash[Property.actual_properties.collect{|prop| [prop, 'string']}]
+    @@props = self.category
+    # singleton_class.class_eval do
+    self.class.class_eval do
+      @@props.each do |property|
+        hstore_accessor :listed_specs, Hash[property.listed_sym, property.data_type]
+        hstore_accessor :listed_specs, Hash[property.actual_sym, property.data_type]
+      end
     end
   end
 
