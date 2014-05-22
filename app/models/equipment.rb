@@ -1,4 +1,5 @@
 class Equipment < ActiveRecord::Base
+  has_many :properties, through: :categories
   belongs_to :category
 
   validates :category_id, presence: true
@@ -14,10 +15,10 @@ class Equipment < ActiveRecord::Base
   end
 
   def add_property_fields_to_specs
-    @@props = self.category
+    _category_properties = self.category.properties
     # singleton_class.class_eval do
     self.class.class_eval do
-      @@props.each do |property|
+      _category_properties.each do |property|
         hstore_accessor :listed_specs, Hash[property.listed_sym, property.data_type]
         hstore_accessor :listed_specs, Hash[property.actual_sym, property.data_type]
       end
