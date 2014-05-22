@@ -13,7 +13,15 @@ describe Equipment do
   end
 
   describe "#initialize_with_dynamic_properties" do
-    it "should initialize an object with the properties suited for its category" do
+    let(:equipment_params) do
+      {category_id: wood.id, actual_length: '42', actual_length_unit: 'meter'}
+    end
+    it "should initialize an object with the properties and data types suited for its category" do
+      equipment = Equipment.initialize_with_dynamic_properties(equipment_params)
+      expect(equipment).to be_an_instance_of(Equipment)
+      expect(equipment.actual_length).to eq(42.0)
+      expect(equipment.actual_length).not_to eq('42.0')
+      expect(equipment.actual_length_unit).to eq('meter')
     end
   end
 

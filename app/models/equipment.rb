@@ -9,7 +9,9 @@ class Equipment < ActiveRecord::Base
   before_create :add_property_fields_to_specs
 
   def self.initialize_with_dynamic_properties(equipment_params)
-    equipment = self.new(category_id: equipment_params["category_id"])
+    equipment_params.with_indifferent_access
+
+    equipment = self.new(category_id: equipment_params[:category_id])
     equipment.attributes = equipment_params
     equipment
   end
