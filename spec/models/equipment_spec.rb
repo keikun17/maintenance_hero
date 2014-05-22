@@ -7,7 +7,7 @@ describe Equipment do
   before do
     # setup properties, replace with factories later
     length = Property.create!(name: 'Length', symbol: 'length', data_type: 'float', category: wood)
-    width = Property.create!(name: 'Width', symbol: 'width', data_type: 'float',  category: wood)
+    width = Property.create!(name: 'Width', symbol: 'width', data_type: 'integer',  category: wood)
     length_unit = Property.create!(name: 'Length Unit', symbol: 'length_unit', data_type: 'string', category: wood)
     width_unit = Property.create!(name: 'Width Unit', symbol: 'width_unit', data_type: 'string',  category: wood)
   end
@@ -46,14 +46,14 @@ describe Equipment do
 
       equipment.save
 
-      expect(equipment.listed_length).to eq('42')
+      expect(equipment.listed_length).to eq(42.0)
       expect(equipment.listed_length_unit).to eq('meter')
-      expect(equipment.actual_length).to eq('24')
+      expect(equipment.actual_length).to eq(24.0)
       expect(equipment.actual_length_unit).to eq('meter')
 
-      expect(equipment.listed_width).to eq('69')
+      expect(equipment.listed_width).to eq(69)
       expect(equipment.listed_width_unit).to eq('meter')
-      expect(equipment.actual_width).to eq('96')
+      expect(equipment.actual_width).to eq(96)
       expect(equipment.actual_width_unit).to eq('meter')
     end
 
