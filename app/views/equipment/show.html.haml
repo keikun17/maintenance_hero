@@ -12,17 +12,15 @@
 .row
   .col-md-6
 
-    - Property.listed_properties.each do |property_key|
+    - @equipment.properties.listed_properties.each do |property_key|
       %p
         %strong= model_class.human_attribute_name(property_key) + ':'
-        %br
         = @equipment.send(property_key)
 
   .col-md-6
-    - Property.actual_properties.each do |property_key|
+    - @equipment.properties.actual_properties.each do |property_key|
       %p
         %strong= model_class.human_attribute_name(property_key) + ':'
-        %br
         = @equipment.send(property_key)
 
 %hr

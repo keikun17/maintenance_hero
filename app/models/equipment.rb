@@ -1,5 +1,5 @@
 class Equipment < ActiveRecord::Base
-  has_many :properties, through: :categories
+  has_many :properties, through: :category
   belongs_to :category
 
   validates :category_id, presence: true

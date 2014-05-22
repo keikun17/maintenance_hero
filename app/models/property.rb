@@ -21,11 +21,11 @@ class Property < ActiveRecord::Base
   end
 
   def self.listed_properties
-    Property.all.collect{|x| x.listed_sym }
+    all.collect{|x| x.listed_sym }
   end
 
   def self.actual_properties
-    Property.all.collect{|x| x.actual_sym}
+    all.collect{|x| x.actual_sym}
   end
 end
 

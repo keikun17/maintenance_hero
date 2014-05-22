@@ -13,14 +13,14 @@
 
   .row
     .col-md-6
-      - Property.all.collect{|x| x.listed_sym}.each do |property_key|
+      - @equipment.properties.collect{|x| x.listed_sym}.each do |property_key|
         .form-group
           = f.label property_key, :class => 'control-label'
           .controls
             = f.text_field property_key, :class => 'form-control'
 
     .col-md-6
-      - Property.all.collect{|x| x.actual_sym}.each do |property_key|
+      - @equipment.properties.collect{|x| x.actual_sym}.each do |property_key|
         .form-group
           = f.label property_key, :class => 'control-label'
           .controls
