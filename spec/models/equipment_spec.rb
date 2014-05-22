@@ -16,7 +16,7 @@ describe Equipment do
     let(:equipment_params) do
       {category_id: wood.id, actual_length: '42', actual_length_unit: 'meter'}
     end
-    it "should initialize an object with the properties and data types suited for its category" do
+    it "should initialize an object with the properties and data typest suited for its category" do
       equipment = Equipment.initialize_with_dynamic_properties(equipment_params)
       expect(equipment).to be_an_instance_of(Equipment)
       expect(equipment.actual_length).to eq(42.0)
@@ -25,17 +25,6 @@ describe Equipment do
     end
   end
 
-  describe "#listed_properties" do
-    it "should list all the symbols of the listed propertes" do
-      pending
-    end
-  end
-
-  describe "#actual_properties" do
-    it "should list all the symbols of the listed propertes" do
-      pending
-    end
-  end
 
   describe ".save" do
 
