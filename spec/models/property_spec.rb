@@ -17,6 +17,12 @@ describe Property do
     end
   end
 
+  describe ".save" do
+    it "saves array data types" do
+      pending
+    end
+  end
+
   describe "#actual_properties" do
     it "should list all the symbols of the design propertes" do
       expect(described_class.actual_properties).to match_array([:actual_length, :actual_width, :actual_length_unit, :actual_width_unit])

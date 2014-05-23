@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521152012) do
+ActiveRecord::Schema.define(version: 20140523051426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,8 +57,10 @@ ActiveRecord::Schema.define(version: 20140521152012) do
     t.string   "symbol"
     t.integer  "position"
     t.string   "data_type"
+    t.string   "select_options", default: [], array: true
   end
 
   add_index "properties", ["category_id"], name: "index_properties_on_category_id", using: :btree
+  add_index "properties", ["select_options"], name: "index_properties_on_select_options", using: :gin
 
 end

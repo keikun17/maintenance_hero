@@ -53,7 +53,6 @@ describe Equipment do
       expect(equipment.actual_width).to eq(96)
       expect(equipment.actual_width_unit).to eq('meter')
     end
-
   end
 
 end
