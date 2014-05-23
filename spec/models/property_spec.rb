@@ -19,7 +19,12 @@ describe Property do
 
   describe ".save" do
     it "saves array data types" do
-      pending
+      shape = Property.create!(name: 'Shape',
+                               symbol: 'shape',
+                               data_type: 'string',
+                               category: wood,
+                               select_options: ['square', 'triangle','circle'])
+      expect(shape.select_options).to match_array(['square', 'triangle', 'circle'])
     end
   end
 
