@@ -33,12 +33,13 @@ end
 #
 # Table name: properties
 #
-#  id          :integer          not null, primary key
-#  category_id :integer
-#  name        :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
-#  symbol      :string(255)
-#  position    :integer
-#  data_type   :string(255)
+#  id             :integer          not null, primary key
+#  category_id    :integer
+#  name           :string(255)
+#  created_at     :datetime
+#  updated_at     :datetime
+#  symbol         :string(255)
+#  position       :integer
+#  data_type      :string(255)
+#  select_options :string(255)      default([]), is an Array
 #
