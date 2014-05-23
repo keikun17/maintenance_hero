@@ -21,8 +21,8 @@ class Equipment < ActiveRecord::Base
     # singleton_class.class_eval do
     self.class.class_eval do
       _category_properties.each do |property|
-        hstore_accessor :listed_specs, Hash[property.listed_sym, property.data_type]
-        hstore_accessor :listed_specs, Hash[property.actual_sym, property.data_type]
+        hstore_accessor :design_specs, Hash[property.design_sym, property.data_type]
+        hstore_accessor :design_specs, Hash[property.actual_sym, property.data_type]
       end
     end
   end
@@ -35,7 +35,7 @@ end
 #
 #  id           :integer          not null, primary key
 #  description  :text
-#  listed_specs :hstore
+#  design_specs :hstore
 #  actual_specs :hstore
 #  itemcode     :string(255)
 #  installed_at :date

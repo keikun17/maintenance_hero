@@ -6,7 +6,7 @@
     %tr
       %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:description)
-      %th= model_class.human_attribute_name(:listed_specs)
+      %th= model_class.human_attribute_name(:design_specs)
       %th= model_class.human_attribute_name(:actual_specs)
       %th= model_class.human_attribute_name(:itemcode)
       %th= model_class.human_attribute_name(:installed_at)
@@ -19,7 +19,7 @@
       %tr
         %td= link_to equipment.id, equipment_path(equipment)
         %td= equipment.description
-        %td= equipment.listed_specs
+        %td= equipment.design_specs
         %td= equipment.actual_specs
         %td= equipment.itemcode
         %td= equipment.installed_at

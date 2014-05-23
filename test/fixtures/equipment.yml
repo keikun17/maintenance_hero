@@ -2,7 +2,7 @@
 
 one:
   description: MyText
-  listed_specs: 
+  design_specs: 
   actual_specs: 
   itemcode: MyString
   installed_at: 2014-05-11
@@ -11,7 +11,7 @@ one:
 
 two:
   description: MyText
-  listed_specs: 
+  design_specs: 
   actual_specs: 
   itemcode: MyString
   installed_at: 2014-05-11
@@ -24,7 +24,7 @@ two:
 #
 #  id           :integer          not null, primary key
 #  description  :text
-#  listed_specs :hstore
+#  design_specs :hstore
 #  actual_specs :hstore
 #  itemcode     :string(255)
 #  installed_at :date

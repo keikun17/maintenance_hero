@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140521152012) do
 
   create_table "equipment", force: true do |t|
     t.text     "description"
-    t.hstore   "listed_specs"
+    t.hstore   "design_specs"
     t.hstore   "actual_specs"
     t.string   "itemcode"
     t.date     "installed_at"
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20140521152012) do
 
   add_index "equipment", ["actual_specs"], name: "equipments_gin_actual_spec", using: :gin
   add_index "equipment", ["category_id"], name: "index_equipment_on_category_id", using: :btree
+  add_index "equipment", ["design_specs"], name: "equipments_gin_design_spec", using: :gin
   add_index "equipment", ["itemcode"], name: "index_equipment_on_itemcode", using: :btree
-  add_index "equipment", ["listed_specs"], name: "equipments_gin_listed_spec", using: :gin
   add_index "equipment", ["location_id"], name: "index_equipment_on_location_id", using: :btree
 
   create_table "locations", force: true do |t|

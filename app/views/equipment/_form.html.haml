@@ -13,7 +13,7 @@
 
   .row
     .col-md-6
-      - @equipment.properties.collect{|x| x.listed_sym}.each do |property_key|
+      - @equipment.properties.collect{|x| x.design_sym}.each do |property_key|
         .form-group
           = f.label property_key, :class => 'control-label'
           .controls

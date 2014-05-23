@@ -16,12 +16,12 @@ class Property < ActiveRecord::Base
     ('actual_' + symbol).to_sym
   end
 
-  def listed_sym
-    ('listed_' + symbol).to_sym
+  def design_sym
+    ('design_' + symbol).to_sym
   end
 
-  def self.listed_properties
-    all.collect{|x| x.listed_sym }
+  def self.design_properties
+    all.collect{|x| x.design_sym }
   end
 
   def self.actual_properties

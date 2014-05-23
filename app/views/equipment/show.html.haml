@@ -12,7 +12,7 @@
 .row
   .col-md-6
 
-    - @equipment.properties.listed_properties.each do |property_key|
+    - @equipment.properties.design_properties.each do |property_key|
       %p
         %strong= model_class.human_attribute_name(property_key) + ':'
         = @equipment.send(property_key)

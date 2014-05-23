@@ -2,7 +2,7 @@ class CreateEquipment < ActiveRecord::Migration
   def change
     create_table :equipment do |t|
       t.text :description
-      t.hstore :listed_specs
+      t.hstore :design_specs
       t.hstore :actual_specs
       t.string :itemcode
       t.date :installed_at

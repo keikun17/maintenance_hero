@@ -18,7 +18,7 @@ class EquipmentControllerTest < ActionController::TestCase
 
   test "should create equipment" do
     assert_difference('Equipment.count') do
-      post :create, equipment: { actual_specs: @equipment.actual_specs, description: @equipment.description, failure_mode: @equipment.failure_mode, installed_at: @equipment.installed_at, itemcode: @equipment.itemcode, listed_specs: @equipment.listed_specs, replaced_at: @equipment.replaced_at }
+      post :create, equipment: { actual_specs: @equipment.actual_specs, description: @equipment.description, failure_mode: @equipment.failure_mode, installed_at: @equipment.installed_at, itemcode: @equipment.itemcode, design_specs: @equipment.design_specs, replaced_at: @equipment.replaced_at }
     end
 
     assert_redirected_to equipment_path(assigns(:equipment))
@@ -35,7 +35,7 @@ class EquipmentControllerTest < ActionController::TestCase
   end
 
   test "should update equipment" do
-    patch :update, id: @equipment, equipment: { actual_specs: @equipment.actual_specs, description: @equipment.description, failure_mode: @equipment.failure_mode, installed_at: @equipment.installed_at, itemcode: @equipment.itemcode, listed_specs: @equipment.listed_specs, replaced_at: @equipment.replaced_at }
+    patch :update, id: @equipment, equipment: { actual_specs: @equipment.actual_specs, description: @equipment.description, failure_mode: @equipment.failure_mode, installed_at: @equipment.installed_at, itemcode: @equipment.itemcode, design_specs: @equipment.design_specs, replaced_at: @equipment.replaced_at }
     assert_redirected_to equipment_path(assigns(:equipment))
   end
 
