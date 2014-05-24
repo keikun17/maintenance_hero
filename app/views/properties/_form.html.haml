@@ -20,5 +20,8 @@
     .controls
       = f.select :data_type, Property::DATA_TYPES, {}, :class => 'form-control', disabled: @property.persisted?
 
+  #select_options-fields
+    = render partial: 'select_option_fields', locals: {f: f}
+
   = f.submit nil, :class => 'btn btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), properties_path, :class => 'btn btn-default'
