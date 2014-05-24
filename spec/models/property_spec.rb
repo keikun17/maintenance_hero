@@ -17,6 +17,23 @@ describe Property do
     end
   end
 
+  describe ".initialize_with_taggings" do
+    let(:whitelisted_params) do
+      {"category_id"=>"1",
+       "name"=>"Resistance Type",
+       "symbol"=>"resistance_type",
+       "position"=>"",
+       "data_type"=>"string",
+       "select_options"=>"heat,abrasive"
+      }
+    end
+
+    it "takes an attribute with comma separated select_options and turns it into array" do
+      a = Property.initialize_with_taggings(whitelisted_params)
+      expect(a.select_options).to match_array(['heat', 'abrasive'])
+    end
+  end
+
   describe ".save" do
     it "saves array data types" do
       shape = Property.create!(name: 'Shape',

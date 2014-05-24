@@ -27,6 +27,13 @@ class Property < ActiveRecord::Base
   def self.actual_properties
     all.collect{|x| x.actual_sym}
   end
+
+  def self.initialize_with_taggings(whitelisted_params)
+    tags = whitelisted_params.delete('select_options') || ""
+    whitelisted_params.merge!('select_options' => tags.split(','))
+
+    Property.new(whitelisted_params)
+  end
 end
 
 # == Schema Information
