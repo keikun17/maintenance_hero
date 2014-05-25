@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   resources :locations
 
-  root 'equipment#index'
+  root 'products#index'
 
   # wizard resource
-  resources :equipment_creation
+  resources :product_creation
 
   resources :locations
 
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  resources :equipment
+  resources :products
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

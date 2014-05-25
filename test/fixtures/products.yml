@@ -20,7 +20,7 @@ two:
 
 # == Schema Information
 #
-# Table name: equipment
+# Table name: products
 #
 #  id           :integer          not null, primary key
 #  description  :text

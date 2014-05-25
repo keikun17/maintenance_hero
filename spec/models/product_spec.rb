@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Equipment do
+describe Product do
 
   let(:wood) { Category.find_or_create_by(name: 'Wood') }
 
@@ -13,15 +13,15 @@ describe Equipment do
   end
 
   describe "#initialize_with_dynamic_properties" do
-    let(:equipment_params) do
+    let(:product_params) do
       {category_id: wood.id, actual_length: '42', actual_length_unit: 'meter'}
     end
     it "should initialize an object with the properties and data typest suited for its category" do
-      equipment = Equipment.initialize_with_dynamic_properties(equipment_params)
-      expect(equipment).to be_an_instance_of(Equipment)
-      expect(equipment.actual_length).to eq(42.0)
-      expect(equipment.actual_length).not_to eq('42.0')
-      expect(equipment.actual_length_unit).to eq('meter')
+      product = Product.initialize_with_dynamic_properties(product_params)
+      expect(product).to be_an_instance_of(Product)
+      expect(product.actual_length).to eq(42.0)
+      expect(product.actual_length).not_to eq('42.0')
+      expect(product.actual_length_unit).to eq('meter')
     end
   end
 
@@ -29,29 +29,29 @@ describe Equipment do
   describe ".save" do
 
     it "saves the dynamic attributes" do
-      equipment = described_class.new(category: wood)
+      product = described_class.new(category: wood)
 
-      equipment.design_length = '42'
-      equipment.design_length_unit = 'meter'
-      equipment.actual_length = '24'
-      equipment.actual_length_unit = 'meter'
+      product.design_length = '42'
+      product.design_length_unit = 'meter'
+      product.actual_length = '24'
+      product.actual_length_unit = 'meter'
 
-      equipment.design_width = '69'
-      equipment.design_width_unit = 'meter'
-      equipment.actual_width = '96'
-      equipment.actual_width_unit = 'meter'
+      product.design_width = '69'
+      product.design_width_unit = 'meter'
+      product.actual_width = '96'
+      product.actual_width_unit = 'meter'
 
-      equipment.save
+      product.save
 
-      expect(equipment.design_length).to eq(42.0)
-      expect(equipment.design_length_unit).to eq('meter')
-      expect(equipment.actual_length).to eq(24.0)
-      expect(equipment.actual_length_unit).to eq('meter')
+      expect(product.design_length).to eq(42.0)
+      expect(product.design_length_unit).to eq('meter')
+      expect(product.actual_length).to eq(24.0)
+      expect(product.actual_length_unit).to eq('meter')
 
-      expect(equipment.design_width).to eq(69)
-      expect(equipment.design_width_unit).to eq('meter')
-      expect(equipment.actual_width).to eq(96)
-      expect(equipment.actual_width_unit).to eq('meter')
+      expect(product.design_width).to eq(69)
+      expect(product.design_width_unit).to eq('meter')
+      expect(product.actual_width).to eq(96)
+      expect(product.actual_width_unit).to eq('meter')
     end
   end
 
@@ -59,7 +59,7 @@ end
 
 # == Schema Information
 #
-# Table name: equipment
+# Table name: product
 #
 #  id           :integer          not null, primary key
 #  description  :text

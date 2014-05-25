@@ -1,4 +1,4 @@
-class Equipment < ActiveRecord::Base
+class Product < ActiveRecord::Base
   has_many :properties, through: :category
   belongs_to :category
 
@@ -8,12 +8,12 @@ class Equipment < ActiveRecord::Base
   before_save :add_property_fields_to_specs
   before_create :add_property_fields_to_specs
 
-  def self.initialize_with_dynamic_properties(equipment_params)
-    equipment_params.with_indifferent_access
+  def self.initialize_with_dynamic_properties(product_params)
+    product_params.with_indifferent_access
 
-    equipment = self.new(category_id: equipment_params[:category_id])
-    equipment.attributes = equipment_params
-    equipment
+    product = self.new(category_id: product_params[:category_id])
+    product.attributes = product_params
+    product
   end
 
   def add_property_fields_to_specs
@@ -31,7 +31,7 @@ end
 
 # == Schema Information
 #
-# Table name: equipment
+# Table name: product
 #
 #  id           :integer          not null, primary key
 #  description  :text

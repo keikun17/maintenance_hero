@@ -1,6 +1,6 @@
-class CreateEquipment < ActiveRecord::Migration
+class CreateProducts < ActiveRecord::Migration
   def change
-    create_table :equipment do |t|
+    create_table :products do |t|
       t.text :description
       t.hstore :design_specs
       t.hstore :actual_specs
@@ -11,6 +11,6 @@ class CreateEquipment < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :equipment, :itemcode
+    add_index :products, :itemcode
   end
 end

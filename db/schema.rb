@@ -23,7 +23,13 @@ ActiveRecord::Schema.define(version: 20140523051426) do
     t.datetime "updated_at"
   end
 
-  create_table "equipment", force: true do |t|
+  create_table "locations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
     t.text     "description"
     t.hstore   "design_specs"
     t.hstore   "actual_specs"
@@ -37,17 +43,11 @@ ActiveRecord::Schema.define(version: 20140523051426) do
     t.integer  "category_id"
   end
 
-  add_index "equipment", ["actual_specs"], name: "equipments_gin_actual_spec", using: :gin
-  add_index "equipment", ["category_id"], name: "index_equipment_on_category_id", using: :btree
-  add_index "equipment", ["design_specs"], name: "equipments_gin_design_spec", using: :gin
-  add_index "equipment", ["itemcode"], name: "index_equipment_on_itemcode", using: :btree
-  add_index "equipment", ["location_id"], name: "index_equipment_on_location_id", using: :btree
-
-  create_table "locations", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  add_index "products", ["actual_specs"], name: "products_gin_actual_spec", using: :gin
+  add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
+  add_index "products", ["design_specs"], name: "products_gin_design_spec", using: :gin
+  add_index "products", ["itemcode"], name: "index_products_on_itemcode", using: :btree
+  add_index "products", ["location_id"], name: "index_products_on_location_id", using: :btree
 
   create_table "properties", force: true do |t|
     t.integer  "category_id"

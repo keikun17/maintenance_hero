@@ -1,4 +1,4 @@
-= form_for @equipment, :html => { :class => 'form-horizontal' } do |f|
+= form_for @product, :html => { :class => 'form-horizontal' } do |f|
 
   = f.hidden_field :category_id
 
@@ -13,14 +13,14 @@
 
   .row
     .col-md-6
-      - @equipment.properties.collect{|x| x.design_sym}.each do |property_key|
+      - @product.properties.collect{|x| x.design_sym}.each do |property_key|
         .form-group
           = f.label property_key, :class => 'control-label'
           .controls
             = f.text_field property_key, :class => 'form-control'
 
     .col-md-6
-      - @equipment.properties.collect{|x| x.actual_sym}.each do |property_key|
+      - @product.properties.collect{|x| x.actual_sym}.each do |property_key|
         .form-group
           = f.label property_key, :class => 'control-label'
           .controls
@@ -46,4 +46,4 @@
       = f.text_field :failure_mode, :class => 'form-control'
 
   = f.submit nil, :class => 'btn btn-primary'
-  = link_to t('.cancel', :default => t("helpers.links.cancel")), equipment_index_path, :class => 'btn btn-default'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), products_path, :class => 'btn btn-default'

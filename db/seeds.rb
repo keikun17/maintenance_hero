@@ -27,7 +27,9 @@ properties.each do |property_attribute|
 end
 
 unless Property.where(symbol: 'belt_type')
-  Property.create({ name: 'Belt type', symbol: 'belt_type', category: conveyor_belt,
+  Property.create({ name: 'Belt type',
+                    symbol: 'belt_type',
+                    category: conveyor_belt,
                     data_type: 'string',
                     select_options: ['Abrasive Resistant', 'Heat Resistant',
                                      'Flame Resistant', 'Oil Resistant']})

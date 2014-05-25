@@ -1,7 +1,7 @@
 class Category < ActiveRecord::Base
   validates :name, presence: true
 
-  has_many :equipment
+  has_many :products
   has_many :properties
 end
 

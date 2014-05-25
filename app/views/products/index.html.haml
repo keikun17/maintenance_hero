@@ -1,0 +1,34 @@
+- model_class = Product
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:description)
+      %th= model_class.human_attribute_name(:design_specs)
+      %th= model_class.human_attribute_name(:actual_specs)
+      %th= model_class.human_attribute_name(:itemcode)
+      %th= model_class.human_attribute_name(:installed_at)
+      %th= model_class.human_attribute_name(:replaced_at)
+      %th= model_class.human_attribute_name(:failure_mode)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @products.each do |product|
+      %tr
+        %td= link_to product.id, product_path(product)
+        %td= product.description
+        %td= product.design_specs
+        %td= product.actual_specs
+        %td= product.itemcode
+        %td= product.installed_at
+        %td= product.replaced_at
+        %td= product.failure_mode
+        %td=l product.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_product_path(product), :class => 'btn btn-default btn-xs'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), product_path(product), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
+
+= link_to 'Add Product', product_creation_path(id: 'select_category'), :class => 'btn btn-primary'
+= link_to t('.new', :default => t("helpers.links.new")), new_product_path, :class => 'btn btn-primary'
