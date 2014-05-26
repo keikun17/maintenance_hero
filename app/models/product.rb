@@ -22,7 +22,7 @@ class Product < ActiveRecord::Base
     self.class.class_eval do
       _category_properties.each do |property|
         hstore_accessor :design_specs, Hash[property.design_sym, property.data_type]
-        hstore_accessor :design_specs, Hash[property.actual_sym, property.data_type]
+        hstore_accessor :actual_specs, Hash[property.actual_sym, property.data_type]
       end
     end
   end
