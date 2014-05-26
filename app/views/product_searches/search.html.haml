@@ -1,1 +1,25 @@
-Hello search
+%h2 Product Search
+
+.row
+  .form-group.col-lg-3
+    = label_tag :category, nil, class: 'control-label'
+    .controls
+      = select_tag :category, options_from_collection_for_select(Category.all, 'id', 'name'), class: 'form-control'
+
+.row
+  .form-group.col-lg-3
+    = label_tag :location, nil, class: 'control-label'
+    .controls
+      = select_tag :location, options_from_collection_for_select(Location.all, 'id', 'name'), class: 'form-control'
+
+.row
+  .form-group.col-lg-3
+    = label_tag :property, nil, class: 'control-label'
+    .controls
+      = select_tag :property, options_from_collection_for_select(Property.all, 'id', 'name'), class: 'form-control'
+  .form-group.col-lg-3
+    = label_tag :property, nil, class: 'control-label'
+    .controls
+      = select_tag :property, options_from_collection_for_select(Property.all, 'id', 'name'), class: 'form-control'
+  = link_to "Add More", '#'
+
