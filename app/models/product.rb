@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+  include Searchable
+
   has_many :properties, through: :category
   belongs_to :category
 

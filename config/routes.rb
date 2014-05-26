@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # wizard resource
   resources :product_creation
 
+
+  get 'search', to: 'product_searches#search'
+
   resources :locations
 
   resources :properties
