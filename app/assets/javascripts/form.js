@@ -9,4 +9,6 @@ function add_fields(link, association, content) {
   $(link).parent().before(content.replace(regexp, new_id));
 }
 
-
+$('#category-filter').on('change', function(){
+  console.log("changed!")
+})

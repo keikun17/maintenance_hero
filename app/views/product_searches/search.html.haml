@@ -17,9 +17,26 @@
     = label_tag :property, nil, class: 'control-label'
     .controls
       = select_tag :property, options_from_collection_for_select(Property.all, 'id', 'name'), class: 'form-control'
+.row
   .form-group.col-lg-3
     = label_tag :property, nil, class: 'control-label'
     .controls
       = select_tag :property, options_from_collection_for_select(Property.all, 'id', 'name'), class: 'form-control'
-  = link_to "Add More", '#'
+.row
+  .form-group.col-lg-3
+    = label_tag :property, nil, class: 'control-label'
+    .controls
+      = select_tag :property, options_from_collection_for_select(Property.all, 'id', 'name'), class: 'form-control'
+.row
+  .form-group.col-lg-3
+    = label_tag :property, nil, class: 'control-label'
+    .controls
+      = select_tag :property, options_from_collection_for_select(Property.all, 'id', 'name'), class: 'form-control'
+.row
+  .form-group.col-lg-3
+    = label_tag :property, nil, class: 'control-label'
+    .controls
+      = select_tag :property, options_from_collection_for_select(Property.all, 'id', 'name'), class: 'form-control'
+  = link_to "Add More", '#', id: 'category-filter'
+
 
