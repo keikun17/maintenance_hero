@@ -1,0 +1,23 @@
+= form_for @rule, :html => { :class => 'form-horizontal' } do |f|
+  .form-group
+    = f.label :failure_mode_id, :class => 'control-label'
+    .controls
+      = f.text_field :failure_mode_id, :class => 'form-control'
+  .form-group
+    = f.label :name, :class => 'control-label'
+    .controls
+      = f.text_field :name, :class => 'form-control'
+  .form-group
+    = f.label :property_id, :class => 'control-label'
+    .controls
+      = f.text_field :property_id, :class => 'form-control'
+  .form-group
+    = f.label :operation, :class => 'control-label'
+    .controls
+      = f.text_field :operation, :class => 'form-control'
+  .form-group
+    = f.label :operand, :class => 'control-label'
+    .controls
+      = f.text_field :operand, :class => 'form-control'
+  = f.submit nil, :class => 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), rules_path, :class => 'btn btn-default'

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  failure_mode_id: 
+  name: MyString
+  property_id: 
+  operation: MyString
+  operand: MyString
+
+two:
+  failure_mode_id: 
+  name: MyString
+  property_id: 
+  operation: MyString
+  operand: MyString

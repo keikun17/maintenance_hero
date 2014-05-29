@@ -1,0 +1,29 @@
+- model_class = Rule
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
+
+%p
+  %strong= model_class.human_attribute_name(:failure_mode_id) + ':'
+  %br
+  = @rule.failure_mode_id
+%p
+  %strong= model_class.human_attribute_name(:name) + ':'
+  %br
+  = @rule.name
+%p
+  %strong= model_class.human_attribute_name(:property_id) + ':'
+  %br
+  = @rule.property_id
+%p
+  %strong= model_class.human_attribute_name(:operation) + ':'
+  %br
+  = @rule.operation
+%p
+  %strong= model_class.human_attribute_name(:operand) + ':'
+  %br
+  = @rule.operand
+
+
+= link_to t('.back', :default => t("helpers.links.back")), rules_path, :class => 'btn btn-default'
+= link_to t('.edit', :default => t("helpers.links.edit")), edit_rule_path(@rule), :class => 'btn btn-default'
+= link_to t('.destroy', :default => t("helpers.links.destroy")), rule_path(@rule), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'

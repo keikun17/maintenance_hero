@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :rules
+
+  resources :failure_modes
+
   resources :locations
 
   root 'products#index'

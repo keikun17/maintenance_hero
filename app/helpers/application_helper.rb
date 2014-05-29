@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def link_to_remove_fields(name, f, target = 'this')
     anchor_text = content_tag :i, name,  class: 'icon-trash'
     f.hidden_field(:_destroy) + link_to_function(raw(anchor_text), "remove_fields(#{target})", class: 'btn btn-danger')
