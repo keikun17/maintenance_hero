@@ -12,12 +12,20 @@ class Property < ActiveRecord::Base
 
   acts_as_list scope: :category
 
+  def actual_key
+    ('actual_' + symbol)
+  end
+
+  def design_key
+    ('design_' + symbol)
+  end
+
   def actual_sym
-    ('actual_' + symbol).to_sym
+    actual_key.to_sym
   end
 
   def design_sym
-    ('design_' + symbol).to_sym
+    design_key.to_sym
   end
 
   def self.design_properties

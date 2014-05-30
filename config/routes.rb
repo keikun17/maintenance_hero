@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
 
   get 'search', to: 'product_searches#search'
+  get '/search_results', to: 'product_searches#results'
 
   resources :locations
 
