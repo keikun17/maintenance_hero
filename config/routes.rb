@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get 'search', to: 'product_searches#search'
   get '/search_results', to: 'product_searches#results'
+  get '/update_category_properties/:category_id', to: 'product_searches#update_category_properties'
 
   resources :locations
 

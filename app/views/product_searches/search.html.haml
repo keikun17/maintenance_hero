@@ -6,12 +6,12 @@
       = label_tag :category, "Find", class: 'control-label'
       .controls
         = collection_select :search, :category, Category.all, :id, :name, {}, class: 'form-control', id: 'category-filter'
+        -# = select_tag :category, options_from_collection_for_select(Category.all, 'id', 'name'), class: 'form-control', id: 'category-filter'
 
   .row
     .form-group.col-lg-3
       = label_tag :property, "Where", class: 'control-label'
-      .controls
-        = collection_select :search, :property, Property.all, :id, :name, {}, class: 'form-control'
+      .controls#property-select
 
   .row
     .form-group.col-lg-3

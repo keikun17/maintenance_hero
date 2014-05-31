@@ -9,6 +9,13 @@ function add_fields(link, association, content) {
   $(link).parent().before(content.replace(regexp, new_id));
 }
 
-$('#category-filter').on('change', function(){
-  console.log("changed!")
+$(document).ready(function(){
+  $('#category-filter').on('change', function(som){
+    var category = $('#category-filter').val();
+    $.get('/update_category_properties/' + category, function(data){
+      $('#property-select').html(data)
+    });
+    console.log('done')
+
+  })
 })

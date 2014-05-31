@@ -2,7 +2,8 @@ class ProductSearchesController < ApplicationController
   def search
   end
 
-  def check_property_type
+  def update_category_properties
+    render partial: 'properties', locals: {category_id: params[:category_id]}
   end
 
   def results

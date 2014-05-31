@@ -1,0 +1,14 @@
+Searching for :
+
+%ul
+  %li Category : #{@search_category}
+  %li Location : #{@search_location}
+  %li Property : #{@search_property}
+  %li Terms : #{@search_term}
+
+- @products.each do |product|
+  .row
+    .col-lg-12
+      = link_to product.itemcode, product
+      = link_to product.description, product
+
