@@ -3,25 +3,25 @@
 = form_tag search_results_path, method: :get do
   .row
     .form-group.col-lg-3
-      = label_tag :category, nil, class: 'control-label'
+      = label_tag :category, "Find", class: 'control-label'
       .controls
         = select_tag :category, options_from_collection_for_select(Category.all, 'id', 'name'), class: 'form-control', id: 'category-filter'
 
-  .row
-    .form-group.col-lg-3
-      = label_tag :location, nil, class: 'control-label'
-      .controls
-        = select_tag :location, options_from_collection_for_select(Location.all, 'id', 'name'), class: 'form-control'
+  -# .row
+  -#   .form-group.col-lg-3
+  -#     = label_tag :location, nil, class: 'control-label'
+  -#     .controls
+  -#       = select_tag :location, options_from_collection_for_select(Location.all, 'id', 'name'), class: 'form-control'
 
   .row
     .form-group.col-lg-3
-      = label_tag :property, nil, class: 'control-label'
+      = label_tag :property, "Where", class: 'control-label'
       .controls
         = select_tag :property, options_from_collection_for_select(Property.all, 'id', 'name'), class: 'form-control'
 
   .row
     .form-group.col-lg-3
-      = label_tag :search_term, nil, class: 'control-label'
+      = label_tag :search_term, "Is", class: 'control-label'
       .controls
         = text_field_tag :search_term, '',class: 'form-control'
   .row
