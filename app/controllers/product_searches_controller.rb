@@ -7,9 +7,8 @@ class ProductSearchesController < ApplicationController
   end
 
   def results
-    @search_category = params["category"]
-    @search_location = params["location"]
-    @search_property = params["property"]
+    @search_category = params["search"]["category"]
+    @search_property = params["search"]["property"]
     @search_term = params["search_term"]
 
     @category = Category.find(@search_category)
