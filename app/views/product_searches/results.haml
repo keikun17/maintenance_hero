@@ -6,9 +6,19 @@ Searching for :
   %li Property : #{@search_property}
   %li Terms : #{@search_term}
 
-- @products.each do |product|
-  .row
-    .col-lg-12
-      = link_to product.itemcode, product
-      = link_to product.description, product
+%table.table.table-bordered
+  %thead
+    %th Item Code
+    %th Description
+    - @category.properties.each do |property|
+      %th= "Design " + property.name
+  %tbody
+    - @products.each do |product|
+      %tr
+        %td= link_to product.itemcode, product
+        %td= link_to product.description, product
+        - @category.properties.each do |property|
+          %td= product.design_specs[property.design_key]
+
+
 
