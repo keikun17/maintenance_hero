@@ -32,7 +32,7 @@ end
 
 # == Schema Information
 #
-# Table name: product
+# Table name: products
 #
 #  id           :integer          not null, primary key
 #  description  :text
