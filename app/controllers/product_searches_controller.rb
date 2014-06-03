@@ -14,8 +14,17 @@ class ProductSearchesController < ApplicationController
     @category = Category.find(@search_category)
     @property = @category.properties.find(@search_property)
 
-    @products = Product.where("design_specs -> :hstore_field = :value",
-                               hstore_field: @property.design_key,
+    case params["search_specs"]
+    when 'Actual'
+      @search_specs = 'actual_specs'
+      @hstore_field = @property.actual_key
+    when 'Design'
+      @search_specs = 'design_specs'
+      @hstore_field = @property.design_key
+    end
+
+    @products = Product.where("#{@search_specs} -> :hstore_field = :value",
+                               hstore_field: @hstore_field,
                                value: @search_term.to_s)
 
 

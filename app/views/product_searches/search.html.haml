@@ -15,6 +15,10 @@
 
   .row
     .form-group.col-lg-3
+      = label_tag :search_specs
+      = select_tag :search_specs, options_for_select(['Actual', 'Design'], 'Actual'), class: 'form-control'
+  .row
+    .form-group.col-lg-3
       = label_tag :search_term, "Is", class: 'control-label'
       .controls
         = text_field_tag :search_term, '',class: 'form-control'
