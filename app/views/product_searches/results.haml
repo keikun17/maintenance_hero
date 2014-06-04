@@ -1,9 +1,9 @@
 Searching for :
 
 %ul
-  %li Category : #{@search_category}
-  %li Location : #{@search_location}
-  %li Property : #{@search_property}
+  %li Category : #{@category.name}
+  %li Search Term : #{params['search_specs']}
+  %li Property : #{@property.name}
   %li Terms : #{@search_term}
 
 %table.table.table-bordered
@@ -11,14 +11,24 @@ Searching for :
     %th Item Code
     %th Description
     - @category.properties.each do |property|
-      %th= "Design " + property.name
-  %tbody
-    - @products.each do |product|
-      %tr
-        %td= link_to product.itemcode, product
-        %td= link_to product.description, product
-        - @category.properties.each do |property|
-          %td= product.design_specs[property.design_key]
+      %th= params['search_specs'] + ' ' + property.name
+  - case params['search_specs']
+    - when 'Actual'
+      %tbody
+        - @products.each do |product|
+          %tr
+            %td= link_to product.itemcode, product
+            %td= link_to product.description, product
+            - @category.properties.each do |property|
+              %td= product.actual_specs[property.actual_key]
+    - when 'Design'
+      %tbody
+        - @products.each do |product|
+          %tr
+            %td= link_to product.itemcode, product
+            %td= link_to product.description, product
+            - @category.properties.each do |property|
+              %td= product.design_specs[property.design_key]
 
 
 
