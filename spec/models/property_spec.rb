@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Property do
+describe Property, :type => :model do
 
   let(:wood) { Category.find_or_create_by(name: 'Wood') }
 
