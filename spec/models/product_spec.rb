@@ -2,21 +2,21 @@ require 'rails_helper'
 
 describe Product, :type => :model do
 
-  let(:wood) { Category.find_or_create_by(name: 'Wood') }
+  let(:wood) { Equipment.find_or_create_by(name: 'Wood') }
 
   before do
     # setup properties, replace with factories later
-    length = Property.create!(name: 'Length', symbol: 'length', data_type: 'float', category: wood)
-    width = Property.create!(name: 'Width', symbol: 'width', data_type: 'integer',  category: wood)
-    length_unit = Property.create!(name: 'Length Unit', symbol: 'length_unit', data_type: 'string', category: wood)
-    width_unit = Property.create!(name: 'Width Unit', symbol: 'width_unit', data_type: 'string',  category: wood)
+    length = Property.create!(name: 'Length', symbol: 'length', data_type: 'float', equipment: wood)
+    width = Property.create!(name: 'Width', symbol: 'width', data_type: 'integer',  equipment: wood)
+    length_unit = Property.create!(name: 'Length Unit', symbol: 'length_unit', data_type: 'string', equipment: wood)
+    width_unit = Property.create!(name: 'Width Unit', symbol: 'width_unit', data_type: 'string',  equipment: wood)
   end
 
   describe "#initialize_with_dynamic_properties" do
     let(:product_params) do
-      {category_id: wood.id, actual_length: '42', actual_length_unit: 'meter'}
+      {equipment_id: wood.id, actual_length: '42', actual_length_unit: 'meter'}
     end
-    it "should initialize an object with the properties and data typest suited for its category" do
+    it "should initialize an object with the properties and data typest suited for its equipment" do
       product = Product.initialize_with_dynamic_properties(product_params)
       expect(product).to be_an_instance_of(Product)
       expect(product.actual_length).to eq(42.0)
@@ -29,7 +29,7 @@ describe Product, :type => :model do
   describe ".save" do
 
     it "saves the dynamic attributes" do
-      product = described_class.new(category: wood)
+      product = described_class.new(equipment: wood)
 
       product.design_length = '42'
       product.design_length_unit = 'meter'
@@ -72,5 +72,5 @@ end
 #  created_at   :datetime
 #  updated_at   :datetime
 #  location_id  :integer
-#  category_id  :integer
+#  equipment_id  :integer
 #

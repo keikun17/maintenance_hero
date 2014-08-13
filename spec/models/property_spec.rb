@@ -2,13 +2,13 @@ require 'rails_helper'
 
 describe Property, :type => :model do
 
-  let(:wood) { Category.find_or_create_by(name: 'Wood') }
+  let(:wood) { Equipment.find_or_create_by(name: 'Wood') }
 
   before do
-    length = Property.create!(name: 'Length', symbol: 'length', data_type: 'float', category: wood)
-    width = Property.create!(name: 'Width', symbol: 'width', data_type: 'integer',  category: wood)
-    length_unit = Property.create!(name: 'Length Unit', symbol: 'length_unit', data_type: 'string', category: wood)
-    width_unit = Property.create!(name: 'Width Unit', symbol: 'width_unit', data_type: 'string',  category: wood)
+    length = Property.create!(name: 'Length', symbol: 'length', data_type: 'float', equipment: wood)
+    width = Property.create!(name: 'Width', symbol: 'width', data_type: 'integer',  equipment: wood)
+    length_unit = Property.create!(name: 'Length Unit', symbol: 'length_unit', data_type: 'string', equipment: wood)
+    width_unit = Property.create!(name: 'Width Unit', symbol: 'width_unit', data_type: 'string',  equipment: wood)
   end
 
   describe "#design_properties" do
@@ -19,7 +19,7 @@ describe Property, :type => :model do
 
   describe ".initialize_with_taggings" do
     let(:whitelisted_params) do
-      {"category_id"=>"1",
+      {"equipment_id"=>"1",
        "name"=>"Resistance Type",
        "symbol"=>"resistance_type",
        "position"=>"",
@@ -39,7 +39,7 @@ describe Property, :type => :model do
       shape = Property.create!(name: 'Shape',
                                symbol: 'shape',
                                data_type: 'string',
-                               category: wood,
+                               equipment: wood,
                                select_options: ['square', 'triangle','circle'])
       expect(shape.select_options).to match_array(['square', 'triangle', 'circle'])
     end
@@ -57,7 +57,7 @@ end
 # Table name: properties
 #
 #  id             :integer          not null, primary key
-#  category_id    :integer
+#  equipment_id    :integer
 #  name           :string(255)
 #  created_at     :datetime
 #  updated_at     :datetime
