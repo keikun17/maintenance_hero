@@ -1,10 +1,10 @@
 ready = ->
   reloadSearchProperty()
-  $('#category-filter').on 'change', reloadSearchProperty
+  $('#equipment-filter').on 'change', reloadSearchProperty
 
 window.reloadSearchProperty = ->
-  category = $('#category-filter').val()
-  $.get('/update_category_properties/' + category, (data) ->
+  equipment = $('#equipment-filter').val()
+  $.get('/update_equipment_properties/' + equipment, (data) ->
     $('#property-select').html(data)
   )
 

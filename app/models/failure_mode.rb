@@ -1,5 +1,5 @@
 class FailureMode < ActiveRecord::Base
-  belongs_to :category
+  belongs_to :equipment
 end
 
 # == Schema Information
@@ -7,7 +7,7 @@ end
 # Table name: failure_modes
 #
 #  id          :integer          not null, primary key
-#  category_id :integer
+#  equipment_id :integer
 #  name        :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime

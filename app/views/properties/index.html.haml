@@ -5,7 +5,7 @@
   %thead
     %tr
       %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:category_name)
+      %th= model_class.human_attribute_name(:equipment_name)
       %th= model_class.human_attribute_name(:name)
       %th= model_class.human_attribute_name(:symbol)
       %th= model_class.human_attribute_name(:data_type)
@@ -16,7 +16,7 @@
     - @properties.each do |property|
       %tr
         %td= link_to property.id, property_path(property)
-        %td= property.category.name
+        %td= property.equipment.name
         %td= property.name
         %td= property.symbol
         %td= property.data_type

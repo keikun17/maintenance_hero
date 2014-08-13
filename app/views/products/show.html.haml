@@ -1,6 +1,6 @@
 - model_class = Product
 .page-header
-  %h1 #{@product.category.name} Product
+  %h1 #{@product.equipment.name} Product
 
 %p
   %strong= model_class.human_attribute_name(:description) + ':'
@@ -31,11 +31,11 @@
 %p
   %strong= model_class.human_attribute_name(:installed_at) + ':'
   %br
-  = @product.installed_at
+  = local_time(@product.installed_at, format: :short)
 %p
   %strong= model_class.human_attribute_name(:replaced_at) + ':'
   %br
-  = @product.replaced_at
+  = local_time(@product.replaced_at, format: :long)
 %p
   %strong= model_class.human_attribute_name(:failure_mode) + ':'
   %br

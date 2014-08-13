@@ -8,7 +8,7 @@ two:
 
 # == Schema Information
 #
-# Table name: categories
+# Table name: equipments
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)

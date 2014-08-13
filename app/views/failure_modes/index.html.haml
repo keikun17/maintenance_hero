@@ -5,7 +5,7 @@
   %thead
     %tr
       %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:category_id)
+      %th= model_class.human_attribute_name(:equipment_id)
       %th= model_class.human_attribute_name(:name)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
@@ -13,7 +13,7 @@
     - @failure_modes.each do |failure_mode|
       %tr
         %td= link_to failure_mode.id, failure_mode_path(failure_mode)
-        %td= failure_mode.category_id
+        %td= failure_mode.equipment_id
         %td= failure_mode.name
         %td=l failure_mode.created_at
         %td

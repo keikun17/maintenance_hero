@@ -33,5 +33,5 @@ two:
 #  created_at   :datetime
 #  updated_at   :datetime
 #  location_id  :integer
-#  category_id  :integer
+#  equipment_id  :integer
 #

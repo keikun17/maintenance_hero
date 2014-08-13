@@ -70,7 +70,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      permitted_attributes = [:category_id, :description, :design_specs, :actual_specs, :itemcode, :installed_at, :replaced_at, :failure_mode]
+      permitted_attributes = [:equipment_id, :description, :design_specs, :actual_specs, :itemcode, :installed_at, :replaced_at, :failure_mode]
       permitted_attributes.concat(Property.design_properties + Property.actual_properties)
       params.require(:product).permit(permitted_attributes)
     end

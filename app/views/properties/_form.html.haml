@@ -1,8 +1,8 @@
 = form_for @property, :html => { :class => 'form-horizontal' } do |f|
   .form-group
-    = f.label :category_id, :class => 'control-label'
+    = f.label :equipment_id, :class => 'control-label'
     .controls
-      = f.select :category_id, Category.all.map{ |x| [x.name, x.id] }, {}, disabled: @property.persisted?,  class: 'form-control'
+      = f.select :equipment_id, Equipment.all.map{ |x| [x.name, x.id] }, {}, disabled: @property.persisted?,  class: 'form-control'
   .form-group
     = f.label :position, :class => 'control-label'
     .controls

@@ -2,17 +2,17 @@ class ProductSearchesController < ApplicationController
   def search
   end
 
-  def update_category_properties
-    render partial: 'properties', locals: {category_id: params[:category_id]}
+  def update_equipment_properties
+    render partial: 'properties', locals: {equipment_id: params[:equipment_id]}
   end
 
   def results
-    @search_category = params["search"]["category"]
+    @search_equipment = params["search"]["equipment"]
     @search_property = params["search"]["property"]
     @search_term = params["search_term"]
 
-    @category = Category.find(@search_category)
-    @property = @category.properties.find(@search_property)
+    @equipment = Equipment.find(@search_equipment)
+    @property = @equipment.properties.find(@search_property)
 
     case params["search_specs"]
     when 'Actual'

@@ -17,20 +17,20 @@ ActiveRecord::Schema.define(version: 20140529091421) do
   enable_extension "plpgsql"
   enable_extension "hstore"
 
-  create_table "categories", force: true do |t|
+  create_table "equipments", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "failure_modes", force: true do |t|
-    t.integer  "category_id"
+    t.integer  "equipment_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "failure_modes", ["category_id"], name: "index_failure_modes_on_category_id", using: :btree
+  add_index "failure_modes", ["equipment_id"], name: "index_failure_modes_on_equipment_id", using: :btree
 
   create_table "locations", force: true do |t|
     t.string   "name"
@@ -49,17 +49,17 @@ ActiveRecord::Schema.define(version: 20140529091421) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "location_id"
-    t.integer  "category_id"
+    t.integer  "equipment_id"
   end
 
   add_index "products", ["actual_specs"], name: "products_gin_actual_spec", using: :gin
-  add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
   add_index "products", ["design_specs"], name: "products_gin_design_spec", using: :gin
+  add_index "products", ["equipment_id"], name: "index_products_on_equipment_id", using: :btree
   add_index "products", ["itemcode"], name: "index_products_on_itemcode", using: :btree
   add_index "products", ["location_id"], name: "index_products_on_location_id", using: :btree
 
   create_table "properties", force: true do |t|
-    t.integer  "category_id"
+    t.integer  "equipment_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20140529091421) do
     t.string   "select_options", default: [], array: true
   end
 
-  add_index "properties", ["category_id"], name: "index_properties_on_category_id", using: :btree
+  add_index "properties", ["equipment_id"], name: "index_properties_on_equipment_id", using: :btree
   add_index "properties", ["select_options"], name: "index_properties_on_select_options", using: :gin
 
   create_table "rules", force: true do |t|

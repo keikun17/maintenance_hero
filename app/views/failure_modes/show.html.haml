@@ -3,9 +3,9 @@
   %h1=t '.title', :default => model_class.model_name.human.titleize
 
 %p
-  %strong= model_class.human_attribute_name(:category_id) + ':'
+  %strong= model_class.human_attribute_name(:equipment_id) + ':'
   %br
-  = @failure_mode.category_id
+  = @failure_mode.equipment_id
 %p
   %strong= model_class.human_attribute_name(:name) + ':'
   %br

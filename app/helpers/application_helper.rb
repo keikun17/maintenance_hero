@@ -14,4 +14,8 @@ module ApplicationHelper
     link_to_function(anchor_text, "add_fields(#{target}, \"#{association}\", \"#{escape_javascript(fields)}\")", class: 'btn btn-success')
   end
 
+  def local_time(time, options)
+    localize(time, options) unless time.blank?
+  end
+
 end

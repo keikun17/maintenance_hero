@@ -1,7 +1,7 @@
 Searching for :
 
 %ul
-  %li Category : #{@category.name}
+  %li Equipment : #{@equipment.name}
   %li Search Term : #{params['search_specs']}
   %li Property : #{@property.name}
   %li Terms : #{@search_term}
@@ -10,7 +10,7 @@ Searching for :
   %thead
     %th Item Code
     %th Description
-    - @category.properties.each do |property|
+    - @equipment.properties.each do |property|
       %th= params['search_specs'] + ' ' + property.name
   - case params['search_specs']
     - when 'Actual'
@@ -19,7 +19,7 @@ Searching for :
           %tr
             %td= link_to product.itemcode, product
             %td= link_to product.description, product
-            - @category.properties.each do |property|
+            - @equipment.properties.each do |property|
               %td= product.actual_specs[property.actual_key]
     - when 'Design'
       %tbody
@@ -27,7 +27,7 @@ Searching for :
           %tr
             %td= link_to product.itemcode, product
             %td= link_to product.description, product
-            - @category.properties.each do |property|
+            - @equipment.properties.each do |property|
               %td= product.design_specs[property.design_key]
 
 

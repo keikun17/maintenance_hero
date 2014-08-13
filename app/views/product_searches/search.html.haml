@@ -3,10 +3,10 @@
 = form_tag search_results_path, method: :get do
   .row
     .form-group.col-lg-3
-      = label_tag :category, "Find", class: 'control-label'
+      = label_tag :equipment, "Find", class: 'control-label'
       .controls
-        = collection_select :search, :category, Category.all, :id, :name, {}, class: 'form-control', id: 'category-filter'
-        -# = select_tag :category, options_from_collection_for_select(Category.all, 'id', 'name'), class: 'form-control', id: 'category-filter'
+        = collection_select :search, :equipment, Equipment.all, :id, :name, {}, class: 'form-control', id: 'equipment-filter'
+        -# = select_tag :equipment, options_from_collection_for_select(Equipment.all, 'id', 'name'), class: 'form-control', id: 'equipment-filter'
 
   .row
     .form-group.col-lg-3

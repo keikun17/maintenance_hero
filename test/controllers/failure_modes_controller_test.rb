@@ -18,7 +18,7 @@ class FailureModesControllerTest < ActionController::TestCase
 
   test "should create failure_mode" do
     assert_difference('FailureMode.count') do
-      post :create, failure_mode: { category_id: @failure_mode.category_id, name: @failure_mode.name }
+      post :create, failure_mode: { equipment_id: @failure_mode.equipment_id, name: @failure_mode.name }
     end
 
     assert_redirected_to failure_mode_path(assigns(:failure_mode))
@@ -35,7 +35,7 @@ class FailureModesControllerTest < ActionController::TestCase
   end
 
   test "should update failure_mode" do
-    patch :update, id: @failure_mode, failure_mode: { category_id: @failure_mode.category_id, name: @failure_mode.name }
+    patch :update, id: @failure_mode, failure_mode: { equipment_id: @failure_mode.equipment_id, name: @failure_mode.name }
     assert_redirected_to failure_mode_path(assigns(:failure_mode))
   end
 

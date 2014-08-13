@@ -69,6 +69,6 @@ class FailureModesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def failure_mode_params
-      params.require(:failure_mode).permit(:category_id, :name)
+      params.require(:failure_mode).permit(:equipment_id, :name)
     end
 end
