@@ -1,15 +1,7 @@
 Rails.application.routes.draw do
   resources :locations
 
-  root 'products#index'
-
-  # wizard resource
-  resources :product_creation
-
-
-  get 'search', to: 'product_searches#search'
-  get '/search_results', to: 'product_searches#results'
-  get '/update_equipment_properties/:equipment_id', to: 'product_searches#update_equipment_properties'
+  root 'locations#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
