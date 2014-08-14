@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :equipments
+
   resources :locations
 
   root 'locations#index'
