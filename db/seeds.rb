@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-location = Location.find_or_create_by(name: 'Coal')
+coal_area = Location.find_or_create_by(name: 'Coal')
 
 conveyor_belt = Equipment.find_or_create_by(name: 'Conveyor Belt')
 
@@ -34,3 +34,7 @@ unless Property.where(symbol: 'belt_type')
                     select_options: ['Abrasive Resistant', 'Heat Resistant',
                                      'Flame Resistant', 'Oil Resistant']})
 end
+
+conveyor_belt.properties.create({
+  location: coal_area
+})
