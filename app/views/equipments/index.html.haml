@@ -12,9 +12,9 @@
   %tbody
     - @equipments.each do |equipment|
       %tr
-        %td= link_to equipment.id, equipment_path(equipment)
-        %td= equipment.name
-        %td=l equipment.created_at
+        %td= equipment.id
+        %td= link_to equipment.name, equipment_path(equipment)
+        %td=local_date equipment.created_at, format: :short
         %td= equipment.products.count
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_equipment_path(equipment), :class => 'btn btn-default btn-xs'

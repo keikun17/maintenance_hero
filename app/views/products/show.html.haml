@@ -31,11 +31,11 @@
 %p
   %strong= model_class.human_attribute_name(:installed_at) + ':'
   %br
-  = local_time(@product.installed_at, format: :short)
+  = local_date(@product.installed_at, format: :short)
 %p
   %strong= model_class.human_attribute_name(:replaced_at) + ':'
   %br
-  = local_time(@product.replaced_at, format: :long)
+  = local_date(@product.replaced_at, format: :long)
 %p
   %strong= model_class.human_attribute_name(:failure_mode) + ':'
   %br
