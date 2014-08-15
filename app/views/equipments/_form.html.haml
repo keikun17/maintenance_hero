@@ -7,7 +7,9 @@
   .form-group
     = f.label :system_id, class: 'control-label'
     .controls
-      = f.text_field :system_id, class: 'form-control', required: true
+      = f.select :system_id,
+        options_from_collection_for_select(@systems, 'id', 'name'), {},
+        class: 'form-control', required: true
     = error_span(@equipment[:system_id])
   = f.submit nil,class: 'btn btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), equipments_path, :class => 'btn btn-default'
