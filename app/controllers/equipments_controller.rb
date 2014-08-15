@@ -15,6 +15,7 @@ class EquipmentsController < ApplicationController
   # GET /equipments/new
   def new
     @equipment = Equipment.new
+    @locations = Location.all
   end
 
   # GET /equipments/1/edit
