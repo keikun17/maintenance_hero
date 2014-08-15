@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  system_id: 
+  location_id: 
 
 two:
   name: MyString
-  system_id: 
+  location_id: 

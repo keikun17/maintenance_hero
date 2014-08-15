@@ -15,7 +15,7 @@ class EquipmentsController < ApplicationController
   # GET /equipments/new
   def new
     @equipment = Equipment.new
-    @locations = Location.all
+    @systems = System.all
   end
 
   # GET /equipments/1/edit
@@ -70,6 +70,6 @@ class EquipmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_params
-      params.require(:equipment).permit(:name, :location_id)
+      params.require(:equipment).permit(:name, :system_id)
     end
 end

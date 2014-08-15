@@ -1,4 +1,7 @@
-- model_class = Equipment
-.page-header
-  %h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
-= render :partial => "form"
+%h1 Editing equipment
+
+= render 'form'
+
+= link_to 'Show', @equipment
+\|
+= link_to 'Back', equipments_path

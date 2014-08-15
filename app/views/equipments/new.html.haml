@@ -1,4 +1,5 @@
-- model_class = Equipment
-.page-header
-  %h1=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize
-= render :partial => "form"
+%h1 New equipment
+
+= render 'form'
+
+= link_to 'Back', equipments_path
