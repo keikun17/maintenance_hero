@@ -14,8 +14,10 @@ module ApplicationHelper
     link_to_function(anchor_text, "add_fields(#{target}, \"#{association}\", \"#{escape_javascript(fields)}\")", class: 'btn btn-success')
   end
 
-  def local_date(date, options)
-    localize(date, options) unless date.blank?
+  # Because handling nil dates for `@object.repaired_at, format: :short`
+  # is annoying
+  def local_date(date, options = {})
+    localize(date.to_date, options) unless date.blank?
   end
 
 end
