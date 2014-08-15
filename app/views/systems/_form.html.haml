@@ -7,9 +7,9 @@
   .form-group
     = f.label :location_id, class: 'control-label'
     .controls
-      = f.select :location_id,
-        options_from_collection_for_select(@locations, 'id', 'name'), {},
-        class: 'form-control', required: true
+      = f.collection_select :location_id, @locations, :id, :name,
+        {prompt: 'Please select'},
+        {class: 'form-control', required: true}
     = error_span(@system[:location_id])
   = f.submit nil,class: 'btn btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), systems_path, :class => 'btn btn-default'
