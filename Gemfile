@@ -21,6 +21,7 @@ gem 'wicked'
 
 group :development do
   gem 'annotate'
+  gem 'seed-fu'
 end
 
 group :test do
