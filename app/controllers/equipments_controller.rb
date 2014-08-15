@@ -20,6 +20,7 @@ class EquipmentsController < ApplicationController
 
   # GET /equipments/1/edit
   def edit
+    @systems = System.all
   end
 
   # POST /equipments

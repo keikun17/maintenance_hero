@@ -15,7 +15,7 @@
         %td= link_to system.id, system_path(system)
         %td= system.name
         %td= system.location_id
-        %td=l system.created_at
+        %td=local_date(system.created_at, format: :long)
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_system_path(system), :class => 'btn btn-default btn-xs'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), system_path(system), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'

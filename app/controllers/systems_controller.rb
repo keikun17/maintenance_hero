@@ -20,6 +20,7 @@ class SystemsController < ApplicationController
 
   # GET /systems/1/edit
   def edit
+    @locations = Location.all
   end
 
   # POST /systems
