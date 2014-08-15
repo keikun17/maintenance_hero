@@ -1,16 +1,13 @@
-= form_for @system do |f|
-  - if @system.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@system.errors.count, "error")} prohibited this system from being saved:"
-      %ul
-        - @system.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :location
-    = f.text_field :location
-  .actions
-    = f.submit 'Save'
+= form_for @system, html: { class: "form form-horizontal system" } do |f|
+  .form-group
+    = f.label :name, class: 'control-label'
+    .controls
+      = f.text_field :name, class: 'form-control', required: true
+    = error_span(@system[:name])
+  .form-group
+    = f.label :location_id, class: 'control-label'
+    .controls
+      = f.text_field :location_id, class: 'form-control', required: true
+    = error_span(@system[:location_id])
+  = f.submit nil,class: 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), systems_path, :class => 'btn btn-default'

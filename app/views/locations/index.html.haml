@@ -13,7 +13,7 @@
       %tr
         %td= link_to location.id, location_path(location)
         %td= location.name
-        %td=local_date location.created_at, format: :long
+        %td=l location.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_location_path(location), :class => 'btn btn-default btn-xs'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), location_path(location), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
