@@ -14,7 +14,7 @@
       %tr
         %td= link_to equipment.id, equipment_path(equipment)
         %td= equipment.name
-        %td= equipment.system_id
+        %td= equipment.system.name
         %td=local_date(equipment.created_at, format: :long)
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_equipment_path(equipment), :class => 'btn btn-default btn-xs'
