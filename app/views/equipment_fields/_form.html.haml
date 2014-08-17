@@ -23,6 +23,5 @@
     .controls
       = f.text_field :position, class: 'form-control', required: true
     = error_span(@equipment_field[:position])
-    = error_span(@equipment_field[:uuid])
   = f.submit nil,class: 'btn btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), equipment_fields_path, :class => 'btn btn-default'

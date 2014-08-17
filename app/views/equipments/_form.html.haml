@@ -1,10 +1,5 @@
 = form_for @equipment, html: { class: "form form-horizontal equipment" } do |f|
   .form-group
-    = f.label :uuid, class: 'control-label'
-    .controls
-      = f.text_field :uuid, class: 'form-control', disabled: true
-    = error_span(@equipment[:name])
-  .form-group
     = f.label :name, class: 'control-label'
     .controls
       = f.text_field :name, class: 'form-control', required: true
