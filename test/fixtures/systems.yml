@@ -6,4 +6,15 @@ one:
 
 two:
   name: MyString
-  location_id: 
+  location_id:
+
+# == Schema Information
+#
+# Table name: systems
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  location_id :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
