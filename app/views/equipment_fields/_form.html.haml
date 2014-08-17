@@ -1,22 +1,28 @@
-= form_for @equipment_field do |f|
-  - if @equipment_field.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@equipment_field.errors.count, "error")} prohibited this equipment_field from being saved:"
-      %ul
-        - @equipment_field.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :field_type
-    = f.text_field :field_type
-  .field
-    = f.label :equipment_type
-    = f.text_field :equipment_type
-  .field
-    = f.label :position
-    = f.number_field :position
-  .actions
-    = f.submit 'Save'
+= form_for @equipment_field, html: { class: "form form-horizontal equipment_field" } do |f|
+  .form-group
+    = f.label :uuid, class: 'control-label'
+    .controls
+      = f.text_field :uuid, class: 'form-control', disabled: true
+  .form-group
+    = f.label :name, class: 'control-label'
+    .controls
+      = f.text_field :name, class: 'form-control', required: true
+    = error_span(@equipment_field[:name])
+  .form-group
+    = f.label :field_type, class: 'control-label'
+    .controls
+      = f.text_field :field_type, class: 'form-control', required: true
+    = error_span(@equipment_field[:field_type])
+  .form-group
+    = f.label :equipment_type_id, class: 'control-label'
+    .controls
+      = f.text_field :equipment_type_id, class: 'form-control', required: true
+    = error_span(@equipment_field[:equipment_type_id])
+  .form-group
+    = f.label :position, class: 'control-label'
+    .controls
+      = f.text_field :position, class: 'form-control', required: true
+    = error_span(@equipment_field[:position])
+    = error_span(@equipment_field[:uuid])
+  = f.submit nil,class: 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), equipment_fields_path, :class => 'btn btn-default'

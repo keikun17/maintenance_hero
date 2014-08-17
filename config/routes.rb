@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :equipments_field
+  resources :equipment_fields
 
   resources :equipment_types
 

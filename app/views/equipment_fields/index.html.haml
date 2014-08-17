@@ -1,25 +1,29 @@
-%h1 Listing equipments_field
-
-%table
-  %tr
-    %th Name
-    %th Field type
-    %th Equipment type
-    %th Position
-    %th
-    %th
-    %th
-
-  - @equipments_field.each do |equipment_field|
+- model_class = EquipmentField
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
+  %thead
     %tr
-      %td= equipment_field.name
-      %td= equipment_field.field_type
-      %td= equipment_field.equipment_type
-      %td= equipment_field.position
-      %td= link_to 'Show', equipment_field
-      %td= link_to 'Edit', edit_equipment_field_path(equipment_field)
-      %td= link_to 'Destroy', equipment_field, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:name)
+      %th= model_class.human_attribute_name(:field_type)
+      %th= model_class.human_attribute_name(:equipment_type_id)
+      %th= model_class.human_attribute_name(:position)
+      %th= model_class.human_attribute_name(:uuid)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @equipment_fields.each do |equipment_field|
+      %tr
+        %td= link_to equipment_field.id, equipment_field_path(equipment_field)
+        %td= equipment_field.name
+        %td= equipment_field.field_type
+        %td= equipment_field.equipment_type_id
+        %td= equipment_field.position
+        %td= equipment_field.uuid
+        %td=l equipment_field.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_equipment_field_path(equipment_field), :class => 'btn btn-default btn-xs'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), equipment_field_path(equipment_field), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
 
-%br
-
-= link_to 'New Equipment field', new_equipment_field_path
+= link_to t('.new', :default => t("helpers.links.new")), new_equipment_field_path, :class => 'btn btn-primary'

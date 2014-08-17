@@ -5,4 +5,4 @@
       = f.text_field :name, class: 'form-control', required: true
     = error_span(@equipment_type[:name])
   = f.submit nil,class: 'btn btn-primary'
-  = link_to t('.cancel', :default => t("helpers.links.cancel")), equipments_type_path, :class => 'btn btn-default'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), equipment_types_path, :class => 'btn btn-default'

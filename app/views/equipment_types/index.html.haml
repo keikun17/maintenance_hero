@@ -9,7 +9,7 @@
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
-    - @equipments_type.each do |equipment_type|
+    - @equipment_types.each do |equipment_type|
       %tr
         %td= link_to equipment_type.id, equipment_type_path(equipment_type)
         %td= equipment_type.name
