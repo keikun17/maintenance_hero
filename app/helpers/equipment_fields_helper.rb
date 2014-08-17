@@ -1,0 +1,2 @@
+module EquipmentFieldsHelper
+end

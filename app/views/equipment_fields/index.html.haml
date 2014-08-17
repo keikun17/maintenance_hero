@@ -1,0 +1,25 @@
+%h1 Listing equipments_field
+
+%table
+  %tr
+    %th Name
+    %th Field type
+    %th Equipment type
+    %th Position
+    %th
+    %th
+    %th
+
+  - @equipments_field.each do |equipment_field|
+    %tr
+      %td= equipment_field.name
+      %td= equipment_field.field_type
+      %td= equipment_field.equipment_type
+      %td= equipment_field.position
+      %td= link_to 'Show', equipment_field
+      %td= link_to 'Edit', edit_equipment_field_path(equipment_field)
+      %td= link_to 'Destroy', equipment_field, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Equipment field', new_equipment_field_path

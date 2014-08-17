@@ -4,7 +4,7 @@ class Equipment < ActiveRecord::Base
   validates :system_id, presence: true
 
   has_many :specifications
-  accepts_nested_attributes_for :specifications #TODO : Add 'reject_if' 
+  accepts_nested_attributes_for :specifications, allow_destroy: true #TODO : Add 'reject_if' 
 
   validates :equipment_type_id, presence: true
 end

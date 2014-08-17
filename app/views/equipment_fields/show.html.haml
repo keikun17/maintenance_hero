@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @equipment_field.name
+%p
+  %b Field type:
+  = @equipment_field.field_type
+%p
+  %b Equipment type:
+  = @equipment_field.equipment_type
+%p
+  %b Position:
+  = @equipment_field.position
+
+= link_to 'Edit', edit_equipment_field_path(@equipment_field)
+\|
+= link_to 'Back', equipments_field_path

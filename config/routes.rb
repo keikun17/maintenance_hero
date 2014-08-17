@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :equipments_field
+
   resources :equipment_types
 
   resources :specifications
