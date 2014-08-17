@@ -1,0 +1,25 @@
+%h1 Listing specifications
+
+%table
+  %tr
+    %th Equipment
+    %th Name
+    %th Datatype
+    %th Position
+    %th
+    %th
+    %th
+
+  - @specifications.each do |specification|
+    %tr
+      %td= specification.equipment
+      %td= specification.name
+      %td= specification.datatype
+      %td= specification.position
+      %td= link_to 'Show', specification
+      %td= link_to 'Edit', edit_specification_path(specification)
+      %td= link_to 'Destroy', specification, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Specification', new_specification_path
