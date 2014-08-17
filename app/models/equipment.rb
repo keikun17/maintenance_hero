@@ -1,6 +1,9 @@
 class Equipment < ActiveRecord::Base
   belongs_to :system
   validates :system_id, presence: true
+
+  has_many :specifications
+  accepts_nested_attributes_for :specifications #TODO : Add 'reject_if' 
 end
 
 # == Schema Information
