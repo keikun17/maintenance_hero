@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140817163033) do
+ActiveRecord::Schema.define(version: 20140817164731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "equipment_fields", force: true do |t|
+    t.string   "name"
+    t.string   "field_type"
+    t.integer  "equipment_type_id"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "uuid"
+  end
+
+  add_index "equipment_fields", ["equipment_type_id"], name: "index_equipment_fields_on_equipment_type_id", using: :btree
+  add_index "equipment_fields", ["uuid"], name: "index_equipment_fields_on_uuid", using: :btree
+
+  create_table "equipment_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "equipments", force: true do |t|
     t.string   "name"
@@ -26,12 +45,6 @@ ActiveRecord::Schema.define(version: 20140817163033) do
 
   add_index "equipments", ["equipment_type_id"], name: "index_equipments_on_equipment_type_id", using: :btree
   add_index "equipments", ["system_id"], name: "index_equipments_on_system_id", using: :btree
-
-  create_table "equipments_type", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "locations", force: true do |t|
     t.string   "name"
