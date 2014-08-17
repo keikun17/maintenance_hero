@@ -10,7 +10,7 @@
 #   inflect.uncountable %w( fish sheep )
 # end
 ActiveSupport::Inflector.inflections(:en) do |inflect|
-  inflect.plural 'equipment', 'equipments'
+  # inflect.irregular 'equipment', 'equipments'
   inflect.singular 'equipments', 'equipment'
 end
 
