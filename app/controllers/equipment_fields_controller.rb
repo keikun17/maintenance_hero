@@ -4,7 +4,7 @@ class EquipmentFieldsController < ApplicationController
   # GET /equipments_field
   # GET /equipments_field.json
   def index
-    @equipments_field = EquipmentField.all
+    @equipment_fields = EquipmentField.all
   end
 
   # GET /equipments_field/1

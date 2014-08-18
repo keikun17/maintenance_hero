@@ -2,13 +2,13 @@ require 'test_helper'
 
 class EquipmentFieldsControllerTest < ActionController::TestCase
   setup do
-    @equipment_field = equipments_field(:one)
+    @equipment_field = equipment_fields(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:equipments_field)
+    assert_not_nil assigns(:equipment_fields)
   end
 
   test "should get new" do
@@ -44,6 +44,6 @@ class EquipmentFieldsControllerTest < ActionController::TestCase
       delete :destroy, id: @equipment_field
     end
 
-    assert_redirected_to equipments_field_path
+    assert_redirected_to equipment_fields_path
   end
 end
