@@ -16,15 +16,11 @@ class EquipmentsController < ApplicationController
   def new
     @equipment = Equipment.new
     @systems = System.all
-    @equipment.specifications.build
   end
 
   # GET /equipments/1/edit
   def edit
     @systems = System.all
-    if @equipment.speficiations.empty?
-      @equipment.specifications.build
-    end
   end
 
   # POST /equipments

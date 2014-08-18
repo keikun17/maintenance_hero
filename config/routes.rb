@@ -3,8 +3,6 @@ Rails.application.routes.draw do
 
   resources :equipment_types
 
-  resources :specifications
-
   resources :equipments
 
   resources :systems
