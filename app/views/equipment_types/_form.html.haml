@@ -8,7 +8,7 @@
   .row
     .col-lg-6
       %h3 Equipment Fields
-      = f.fields_for :equipment_fields do |builder|
+      = f.fields_for :fields do |builder|
         = render 'field_fields', f: builder
       = link_to_add_fields "Add Field", f, :fields
 

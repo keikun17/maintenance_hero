@@ -9,5 +9,6 @@
   .col-lg-2
     = f.number_field :position, class: 'form-control', required: true
 
-  = f.hidden_field :_destroy
-  = link_to "[remove]", '#', class: 'remove_fields', data: {field: '.form-group'}
+  .col-lg-1
+    = f.hidden_field :_destroy
+    = link_to "Remove", '#', class: 'remove_fields btn btn-danger', data: {field: '.form-group'}
