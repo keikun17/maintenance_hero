@@ -1,28 +1,26 @@
-class EquipmentFieldsController < ApplicationController
-  before_action :set_equipment_field, only: [:show, :edit, :update, :destroy]
 
-  # GET /equipments_field
-  # GET /equipments_field.json
+  # GET /equipment_fields
+  # GET /equipment_fields.json
   def index
     @equipment_fields = EquipmentField.all
   end
 
-  # GET /equipments_field/1
-  # GET /equipments_field/1.json
+  # GET /equipment_fields/1
+  # GET /equipment_fields/1.json
   def show
   end
 
-  # GET /equipments_field/new
+  # GET /equipment_fields/new
   def new
     @equipment_field = EquipmentField.new
   end
 
-  # GET /equipments_field/1/edit
+  # GET /equipment_fields/1/edit
   def edit
   end
 
-  # POST /equipments_field
-  # POST /equipments_field.json
+  # POST /equipment_fields
+  # POST /equipment_fields.json
   def create
     @equipment_field = EquipmentField.new(equipment_field_params)
 
@@ -37,8 +35,8 @@ class EquipmentFieldsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /equipments_field/1
-  # PATCH/PUT /equipments_field/1.json
+  # PATCH/PUT /equipment_fields/1
+  # PATCH/PUT /equipment_fields/1.json
   def update
     respond_to do |format|
       if @equipment_field.update(equipment_field_params)
@@ -51,12 +49,12 @@ class EquipmentFieldsController < ApplicationController
     end
   end
 
-  # DELETE /equipments_field/1
-  # DELETE /equipments_field/1.json
+  # DELETE /equipment_fields/1
+  # DELETE /equipment_fields/1.json
   def destroy
     @equipment_field.destroy
     respond_to do |format|
-      format.html { redirect_to equipments_field_url, notice: 'Equipment field was successfully destroyed.' }
+      format.html { redirect_to equipment_fields_url, notice: 'Equipment field was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
