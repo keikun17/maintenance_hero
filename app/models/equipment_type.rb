@@ -5,3 +5,13 @@ class EquipmentType < ActiveRecord::Base
   accepts_nested_attributes_for :fields, allow_destroy: true
 
 end
+
+# == Schema Information
+#
+# Table name: equipment_types
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
