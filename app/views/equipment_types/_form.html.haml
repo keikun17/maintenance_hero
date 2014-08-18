@@ -4,5 +4,16 @@
     .controls
       = f.text_field :name, class: 'form-control', required: true
     = error_span(@equipment_type[:name])
+
+  .row
+    .col-lg-6
+      %h3 Equipment Fields
+      = f.fields_for :equipment_fields do |builder|
+        = render 'field_fields', f: builder
+      = link_to_add_fields "Add Field", f, :fields
+
   = f.submit nil,class: 'btn btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), equipment_types_path, :class => 'btn btn-default'
+
+    
+  = f.submit "Submit"

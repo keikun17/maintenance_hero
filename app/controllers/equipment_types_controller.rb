@@ -1,28 +1,29 @@
 class EquipmentTypesController < ApplicationController
   before_action :set_equipment_type, only: [:show, :edit, :update, :destroy]
 
-  # GET /equipments_type
-  # GET /equipments_type.json
+  # GET /equipment_types
+  # GET /equipment_types.json
   def index
-    @equipments_type = EquipmentType.all
+    @equipment_types = EquipmentType.all
   end
 
-  # GET /equipments_type/1
-  # GET /equipments_type/1.json
+  # GET /equipment_types/1
+  # GET /equipment_types/1.json
   def show
   end
 
-  # GET /equipments_type/new
+  # GET /equipment_types/new
   def new
     @equipment_type = EquipmentType.new
+    @equipment_type.fields.build
   end
 
-  # GET /equipments_type/1/edit
+  # GET /equipment_types/1/edit
   def edit
   end
 
-  # POST /equipments_type
-  # POST /equipments_type.json
+  # POST /equipment_types
+  # POST /equipment_types.json
   def create
     @equipment_type = EquipmentType.new(equipment_type_params)
 
@@ -37,8 +38,8 @@ class EquipmentTypesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /equipments_type/1
-  # PATCH/PUT /equipments_type/1.json
+  # PATCH/PUT /equipment_types/1
+  # PATCH/PUT /equipment_types/1.json
   def update
     respond_to do |format|
       if @equipment_type.update(equipment_type_params)
@@ -51,12 +52,12 @@ class EquipmentTypesController < ApplicationController
     end
   end
 
-  # DELETE /equipments_type/1
-  # DELETE /equipments_type/1.json
+  # DELETE /equipment_types/1
+  # DELETE /equipment_types/1.json
   def destroy
     @equipment_type.destroy
     respond_to do |format|
-      format.html { redirect_to equipments_type_url, notice: 'Equipment type was successfully destroyed.' }
+      format.html { redirect_to equipment_types_url, notice: 'Equipment type was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

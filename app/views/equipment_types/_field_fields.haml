@@ -1,0 +1,13 @@
+.form-group.row
+  .col-lg-3
+    = f.text_field :uuid, class: 'form-control', disabled: true
+  .col-lg-3
+    .control
+    = f.select :field_type, %w[text_field check_box], {}, class: 'form-control', required: true
+  .col-lg-3
+    = f.text_field :name, class: 'form-control', placeholder: 'Field Name', required: true
+  .col-lg-2
+    = f.number_field :position, class: 'form-control', required: true
+
+  = f.hidden_field :_destroy
+  = link_to "[remove]", '#', class: 'remove_fields', data: {field: '.form-group'}
