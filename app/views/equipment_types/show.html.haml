@@ -1,11 +1,22 @@
 - model_class = EquipmentType
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.titleize
+  %h1
+    %page_subject Equipment Type
+    = @equipment_type.name
 
-%p
-  %strong= model_class.human_attribute_name(:name) + ':'
-  %br
-  = @equipment_type.name
+%h3 Fields
+%table.table
+  %tr
+    %th UUID
+    %th Field Name
+    %th Field Type
+  - @equipment_type.fields.each do |field|
+    %tr
+      %td= field.uuid
+      %td= field.name
+      %td= field.field_type
+
+
 
 
 = link_to t('.back', :default => t("helpers.links.back")), equipment_types_path, :class => 'btn btn-default'

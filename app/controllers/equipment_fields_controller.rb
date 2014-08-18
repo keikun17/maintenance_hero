@@ -1,4 +1,6 @@
-
+class EquipmentFieldsController < ApplicationController
+  before_action :set_equipment_field, only: [:show, :edit, :update, :destroy]
+  
   # GET /equipment_fields
   # GET /equipment_fields.json
   def index
