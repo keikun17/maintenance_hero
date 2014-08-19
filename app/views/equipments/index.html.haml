@@ -1,6 +1,14 @@
 - model_class = Equipment
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+
+= form_tag new_equipment_path, method: :get do
+  .row
+    .col-lg-2
+      = select_tag :equipment_type_id, options_from_collection_for_select(@equipment_types, :id, :name), class: 'form-control'
+    .col-lg-2
+      = submit_tag "New Equipment", name: nil, class: 'btn btn-primary'
+
 %table.table.table-striped
   %thead
     %tr

@@ -1,4 +1,5 @@
 = form_for @equipment, html: { class: "form form-horizontal equipment" } do |f|
+  = f.hidden_field :equipment_type_id
   .form-group
     = f.label :name, class: 'control-label'
     .controls
@@ -12,6 +13,9 @@
         {class: 'form-control', required: true}
     = error_span(@equipment[:system_id])
 
+  = f.fields_for :specifications, OpenStruct.new(@equipment.specifications) do |builder|
+    - @equipment.equipment_type.fields.each do |field|
+      = render "/equipment_types/fields/#{field.field_type}", field: field, f: builder
+
   = f.submit nil,class: 'btn btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), equipments_path, :class => 'btn btn-default'
-

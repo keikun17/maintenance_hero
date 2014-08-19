@@ -4,6 +4,8 @@ class Equipment < ActiveRecord::Base
 
   validates :system_id, presence: true
   validates :equipment_type_id, presence: true
+
+  serialize :specifications, Hash
 end
 
 # == Schema Information

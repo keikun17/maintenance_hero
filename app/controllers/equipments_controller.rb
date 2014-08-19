@@ -5,6 +5,7 @@ class EquipmentsController < ApplicationController
   # GET /equipments.json
   def index
     @equipments = Equipment.all
+    @equipment_types = EquipmentType.all
   end
 
   # GET /equipments/1
@@ -14,7 +15,7 @@ class EquipmentsController < ApplicationController
 
   # GET /equipments/new
   def new
-    @equipment = Equipment.new
+    @equipment = Equipment.new(equipment_type_id: params[:equipment_type_id])
     @systems = System.all
   end
 
@@ -71,6 +72,15 @@ class EquipmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_params
-      params.require(:equipment).permit(:name, :system_id)
+      params.require(:equipment).
+        permit( :name, :system_id,
+               { specifications: equipment_field_params(equipment_type_id: params[:equipment][:equipment_type_id]) },
+               :equipment_type_id)
     end
+
+    def equipment_field_params(conditions)
+      equipment_type_id = conditions[:equipment_type_id]
+      EquipmentField.where(equipment_type_id: equipment_type_id).pluck(:id).collect{|id| id.to_s.to_sym }
+    end
+
 end
