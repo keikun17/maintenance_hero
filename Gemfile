@@ -28,6 +28,7 @@ group :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'launchy'
 end
 
 # Use SCSS for stylesheets

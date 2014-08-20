@@ -36,4 +36,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  config.assets.digest = true
+  config.assets.prefix = '../public/assets'
 end
