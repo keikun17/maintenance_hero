@@ -6,3 +6,12 @@ end
 When(/^I press "(.*)"$/) do |button|
   click_button button
 end
+
+When(/^I select "(.*?)" from "(.*?)"$/) do |value, field_string|
+  field = field_string.split(' ').join('_')
+  select(value, from: field)
+end
+
+def field_from_string(field_string)
+  field_string.split(' ').join('_')
+end
